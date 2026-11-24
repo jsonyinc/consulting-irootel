@@ -1,0 +1,2824 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>(주)이루텔럭키 | 중장기 경영전략 및 기술혁신 컨설팅 초안</title>
+  <meta name="description" content="주식회사 이루텔럭키(IROOTEL LUCKY) 비즈니스 진단, 경쟁환경, C-ITS·Matter 차별화, ISP 및 중장기 신사업 전략 컨설팅 초안" />
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <style>
+    :root {
+      --primary: #005A43;        /* Executive Consulting Deep Emerald */
+      --primary-dark: #003E2E;
+      --primary-light: #E8F3F0;
+      --accent: #B45309;         /* Muted Executive Amber */
+      --accent-light: #FEF3C7;
+      --ink: #0F172A;            /* Deep Slate Ink */
+      --body: #334155;
+      --muted: #64748B;
+      --border: #E2E8F0;
+      --border-strong: #CBD5E1;
+      --bg: #F8FAFC;
+      --surface: #FFFFFF;
+      --sidebar-w: 280px;
+      --header-h: 64px;
+      --radius: 8px;
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+      color: var(--body);
+      background-color: var(--bg);
+      line-height: 1.72;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Header */
+    .top-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--header-h);
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      z-index: 100;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      min-inline-size: 0;
+    }
+    .brand-logo {
+      height: 30px;
+      width: auto;
+      aspect-ratio: 605 / 189;
+      display: block;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .brand-title {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+    .brand-sub {
+      font-size: 12px;
+      color: var(--muted);
+      display: block;
+      line-height: 1.2;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border-strong);
+      background: var(--surface);
+      color: var(--ink);
+      transition: all 0.18s ease;
+      text-decoration: none;
+    }
+    .btn:hover { background: var(--bg); border-color: var(--primary); color: var(--primary); }
+    .btn-primary {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--primary-dark); color: #fff; }
+    .mobile-menu-btn { display: none; }
+
+    /* Progress Bar */
+    .progress-track {
+      position: fixed;
+      top: var(--header-h); left: 0; right: 0;
+      height: 3px;
+      background: var(--border);
+      z-index: 99;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--primary);
+      width: 12.5%;
+      transition: width 0.3s ease;
+    }
+
+    /* Layout */
+    .layout {
+      display: flex;
+      padding-top: var(--header-h);
+      min-height: 100vh;
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      position: fixed;
+      top: calc(var(--header-h) + 3px);
+      left: 0;
+      bottom: 0;
+      width: var(--sidebar-w);
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      padding: 24px 16px;
+      overflow-y: auto;
+      z-index: 90;
+      transition: transform 0.25s ease;
+    }
+    .nav-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      padding: 0 12px 10px;
+    }
+    .nav-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+    .nav-item button {
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      border: none;
+      padding: 10px 12px;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--body);
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.4;
+      transition: all 0.15s ease;
+    }
+    .nav-item button:hover { background: var(--bg); color: var(--ink); }
+    .nav-item button.active {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-weight: 700;
+      border-left: 3px solid var(--primary);
+      border-radius: 0 6px 6px 0;
+    }
+    .nav-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary);
+      min-width: 20px;
+      margin-top: 2px;
+    }
+    .sidebar-meta {
+      margin-top: 28px;
+      padding: 16px 12px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .sidebar-meta strong { color: var(--ink); display: block; margin-bottom: 4px; }
+
+    /* Main Content Container */
+    .main-content {
+      margin-left: var(--sidebar-w);
+      flex: 1;
+      padding: 36px 48px 80px;
+      max-width: calc(100% - var(--sidebar-w));
+    }
+    .page-sheet {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    /* Section Visibility (SPA Paging) */
+    .chapter-page { display: none; animation: fadeIn 0.28s ease; }
+    .chapter-page.active { display: block; }
+    body.print-all .chapter-page { display: block !important; margin-bottom: 64px; padding-bottom: 48px; border-bottom: 2px dashed var(--border-strong); }
+    body.print-all .pagination-bar { display: none; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Executive Typography & Consulting Elements */
+    .chapter-kicker {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .chapter-title {
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.025em;
+      line-height: 1.28;
+      margin-bottom: 18px;
+    }
+    .governing-box {
+      background: var(--surface);
+      border-left: 4px solid var(--primary);
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 24px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-sm);
+    }
+    .governing-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+    .governing-box p {
+      font-size: 15.5px;
+      color: var(--ink);
+      font-weight: 500;
+      line-height: 1.68;
+    }
+
+    h2.sec-h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 40px 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      letter-spacing: -0.02em;
+    }
+    h2.sec-h2 span.sec-tag {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 3px 9px;
+      border-radius: 99px;
+    }
+    h3.sec-h3 {
+      font-size: 16.5px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin: 26px 0 12px;
+    }
+    p.lead { font-size: 15px; color: var(--body); margin-bottom: 16px; }
+
+    /* Cards & Grids */
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin: 18px 0; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 18px 0; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 18px 0; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    .card-top-accent { border-top: 3px solid var(--primary); }
+    .card-top-amber { border-top: 3px solid var(--accent); }
+    .kpi-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    .kpi-label { font-size: 12px; color: var(--muted); font-weight: 600; margin-bottom: 6px; }
+    .kpi-value { font-size: 26px; font-weight: 800; color: var(--primary); letter-spacing: -0.02em; line-height: 1.2; }
+    .kpi-sub { font-size: 12.5px; color: var(--body); margin-top: 6px; }
+
+    /* Cover Banner */
+    .cover-hero {
+      background: linear-gradient(135deg, #003E2E 0%, #005A43 60%, #0D7A5F 100%);
+      color: #fff;
+      border-radius: 12px;
+      padding: 44px 40px;
+      margin-bottom: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.28);
+      padding: 4px 12px;
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-bottom: 16px;
+    }
+    .cover-hero h1 {
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1.3;
+      letter-spacing: -0.025em;
+      margin-bottom: 14px;
+    }
+    .cover-hero p {
+      font-size: 15.5px;
+      color: rgba(255,255,255,0.9);
+      max-width: 780px;
+      line-height: 1.65;
+    }
+    .cover-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      font-size: 13px;
+      color: rgba(255,255,255,0.88);
+    }
+
+    /* TOC Index Cards */
+    .toc-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .toc-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .toc-num { font-size: 12px; font-weight: 800; color: var(--primary); margin-bottom: 6px; }
+    .toc-title { font-size: 15.5px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+    .toc-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+    /* Tables */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 18px 0 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      text-align: left;
+    }
+    thead th {
+      background: #F1F5F9;
+      color: var(--ink);
+      font-weight: 700;
+      padding: 12px 14px;
+      border-bottom: 2px solid var(--border-strong);
+      white-space: nowrap;
+    }
+    tbody td {
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.55;
+    }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover { background: #FAFDFE; }
+    .tr-highlight { background: var(--primary-light) !important; font-weight: 600; }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11.5px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .badge-green { background: var(--primary-light); color: var(--primary-dark); }
+    .badge-amber { background: var(--accent-light); color: #92400E; }
+    .badge-slate { background: #E2E8F0; color: #334155; }
+
+    /* Diagram & Visual Figure Frame (with Mandatory Description Below) */
+    .figure-frame {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin: 22px 0 28px;
+      box-shadow: var(--shadow-sm);
+    }
+    .figure-header {
+      padding: 12px 16px 12px 20px;
+      background: #F8FAFC;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .figure-header-title {
+      flex: 1 1 240px;
+      min-inline-size: 0;
+      line-height: 1.45;
+    }
+    .figure-header-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .figure-header span.figure-tag {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    .figure-zoom-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 12px;
+      min-block-size: 34px;
+      min-inline-size: 34px;
+      border-radius: 99px;
+      border: 1px solid #B7DDD2;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background-color 0.16s ease, border-color 0.16s ease, transform 0.16s ease;
+    }
+    .figure-zoom-btn:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+    .figure-zoom-btn:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .figure-body {
+      padding: 24px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      background: #FFFFFF;
+      position: relative;
+    }
+    .figure-body--zoomable {
+      cursor: zoom-in;
+    }
+    .figure-body--mermaid {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .figure-body--mermaid pre.mermaid {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+    .figure-body--mermaid pre.mermaid svg {
+      max-width: 100%;
+      height: auto;
+    }
+    .figure-body picture {
+      display: block;
+      max-width: 100%;
+    }
+    .figure-body img {
+      max-width: 100%;
+      height: auto;
+      aspect-ratio: 2730 / 1536;
+      border-radius: 6px;
+      display: block;
+    }
+    .figure-mobile-hint {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 8px 16px;
+      background: #F1F5F9;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .figure-desc {
+      padding: 14px 20px;
+      background: #F8FAFC;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--body);
+      line-height: 1.65;
+    }
+    .figure-desc strong { color: var(--primary-dark); }
+
+    /* Interactive Diagram Lightbox (<dialog>) */
+    :root { --target-size: 36px; }
+    @media (pointer: coarse) {
+      :root { --target-size: 44px; }
+    }
+
+    dialog.diagram-lightbox {
+      margin: auto;
+      border: 1px solid var(--border-strong);
+      border-radius: 12px;
+      padding: 0;
+      width: min(96dvw, 1360px);
+      height: min(92dvh, 920px);
+      max-width: none;
+      max-height: none;
+      background: #0F172A;
+      color: #F8FAFC;
+      box-shadow: 0 24px 64px rgba(15, 23, 42, 0.45);
+      overflow: hidden;
+      opacity: 0;
+      transition-property: opacity, transform, display, overlay;
+      transition-duration: 0.24s;
+      transition-timing-function: ease-out;
+      transition-behavior: allow-discrete;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      dialog.diagram-lightbox { transform: scale(0.96); }
+    }
+    dialog.diagram-lightbox[open] {
+      display: flex;
+      flex-direction: column;
+    }
+    :is(dialog.diagram-lightbox[open]):where(:not([data-closing])) {
+      opacity: 1;
+      @starting-style { opacity: 0; }
+      @media (prefers-reduced-motion: no-preference) {
+        transform: scale(1);
+        @starting-style { transform: scale(0.96); }
+      }
+      &::backdrop {
+        background-color: rgba(15, 23, 42, 0.78);
+        @starting-style { background-color: rgba(15, 23, 42, 0); }
+      }
+    }
+    dialog.diagram-lightbox:modal {
+      overscroll-behavior: contain;
+    }
+    dialog.diagram-lightbox::backdrop {
+      overflow: hidden;
+      overscroll-behavior: contain;
+      background-color: rgba(15, 23, 42, 0);
+      backdrop-filter: blur(4px);
+      transition-property: background-color, display, overlay;
+      transition-duration: 0.24s;
+      transition-timing-function: ease-out;
+      transition-behavior: allow-discrete;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      dialog.diagram-lightbox,
+      dialog.diagram-lightbox::backdrop {
+        transition-duration: 0.1s;
+      }
+    }
+
+    .lightbox-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: max(10px, env(safe-area-inset-top, 0px)) max(14px, env(safe-area-inset-right, 0px)) 10px max(16px, env(safe-area-inset-left, 0px));
+      background: #1E293B;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      flex-shrink: 0;
+    }
+    .lightbox-heading-wrap {
+      flex: 1 1 200px;
+      min-inline-size: 0;
+    }
+    .lightbox-title {
+      font-size: clamp(0.88rem, 0.8rem + 0.35vw, 1.02rem);
+      font-weight: 700;
+      color: #F8FAFC;
+      line-height: 1.35;
+      overflow-wrap: break-word;
+    }
+    .lightbox-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .lb-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      min-block-size: var(--target-size);
+      min-inline-size: var(--target-size);
+      padding: 0 11px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.08);
+      color: #F8FAFC;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+    .lb-btn:hover { background: rgba(255, 255, 255, 0.18); border-color: rgba(255, 255, 255, 0.38); }
+    .lb-btn:focus-visible { outline: 3px solid #34D399; outline-offset: 2px; }
+    .lb-btn-close {
+      background: #005A43;
+      border-color: #10B981;
+      color: #fff;
+      padding: 0 14px;
+    }
+    .lb-btn-close:hover { background: #047857; }
+    .lb-zoom-readout {
+      min-inline-size: 56px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .lightbox-stage {
+      position: relative;
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: hidden;
+      background-color: #F8FAFC;
+      background-image: radial-gradient(#CBD5E1 1px, transparent 1px);
+      background-size: 20px 20px;
+      touch-action: none;
+      cursor: grab;
+      user-select: none;
+    }
+    .lightbox-stage.is-panning { cursor: grabbing; }
+    .lightbox-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform-origin: 0 0;
+      will-change: transform;
+      background: #FFFFFF;
+      border-radius: 8px;
+      box-shadow: 0 8px 32px rgba(15, 23, 42, 0.14);
+      padding: 16px;
+    }
+    .lightbox-canvas--image {
+      padding: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+    .lightbox-canvas img,
+    .lightbox-canvas svg {
+      display: block;
+      max-width: none !important;
+      pointer-events: none;
+      user-select: none;
+    }
+    .lightbox-caption-panel {
+      background: #1E293B;
+      color: #E2E8F0;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 10px max(16px, env(safe-area-inset-right, 0px)) max(10px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+      font-size: 12.5px;
+      line-height: 1.55;
+      max-height: 26dvh;
+      overflow-y: auto;
+      flex-shrink: 0;
+    }
+    .lightbox-caption-panel[hidden] { display: none; }
+    .lightbox-caption-panel strong { color: #6EE7B7; }
+    .lightbox-footer-hint {
+      background: #0F172A;
+      color: #94A3B8;
+      padding: 7px max(16px, env(safe-area-inset-right, 0px)) max(8px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+      font-size: 11.5px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      flex-shrink: 0;
+    }
+
+    /* Interactive Korea Map Box */
+    .map-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1.15fr;
+      gap: 24px;
+      align-items: start;
+      width: 100%;
+    }
+    .korea-svg { width: 100%; max-width: 400px; height: auto; margin: 0 auto; display: block; }
+    .map-pin { cursor: pointer; transition: transform 0.15s ease; }
+    .map-pin:hover circle.pin-dot { fill: var(--accent); r: 9; }
+    .map-pin.active circle.pin-dot { fill: var(--accent); r: 10; stroke: #fff; stroke-width: 2.5; }
+    .region-detail-panel {
+      background: #F8FAFC;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .region-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+    .region-tab {
+      padding: 5px 11px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 99px;
+      border: 1px solid var(--border-strong);
+      background: #fff;
+      color: var(--body);
+      cursor: pointer;
+    }
+    .region-tab.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+    /* Horizontal Bar Chart for Competitors */
+    .bar-chart { width: 100%; display: flex; flex-direction: column; gap: 11px; }
+    .bar-row { display: grid; grid-template-columns: 155px 1fr 78px; align-items: center; gap: 12px; font-size: 13px; }
+    .bar-name { font-weight: 600; color: var(--ink); text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .bar-track { background: #F1F5F9; height: 22px; border-radius: 4px; overflow: hidden; }
+    .bar-fill { height: 100%; background: #94A3B8; border-radius: 4px; transition: width 0.5s ease; }
+    .bar-fill.primary { background: var(--primary); }
+    .bar-fill.accent { background: var(--accent); }
+    .bar-val { font-weight: 700; color: var(--ink); font-size: 12.5px; }
+
+    /* Bullet Lists */
+    ul.clean-list { padding-left: 18px; margin: 10px 0 16px; }
+    ul.clean-list li { margin-bottom: 7px; font-size: 14px; color: var(--body); }
+    ul.clean-list li strong { color: var(--ink); }
+
+    /* SWOT 2x2 */
+    .swot-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 18px 0; }
+    .swot-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; }
+    .swot-box h4 { font-size: 14.5px; font-weight: 800; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .swot-s { border-top: 3px solid var(--primary); }
+    .swot-w { border-top: 3px solid #64748B; }
+    .swot-o { border-top: 3px solid #0284C7; }
+    .swot-t { border-top: 3px solid var(--accent); }
+
+    /* Pagination Bar */
+    .pagination-bar {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-strong);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* Callout Note */
+    .callout {
+      background: var(--primary-light);
+      border: 1px solid #B7DDD2;
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin: 18px 0;
+      font-size: 13.5px;
+      color: var(--primary-dark);
+      line-height: 1.65;
+    }
+    .callout-amber {
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+      color: #78350F;
+    }
+
+    /* Responsive */
+    @media (pointer: coarse) {
+      .figure-zoom-btn {
+        min-block-size: 44px;
+        padding: 8px 14px;
+      }
+    }
+    @media (max-width: 1024px) {
+      .sidebar { transform: translateX(-100%); box-shadow: var(--shadow-md); }
+      .sidebar.open { transform: translateX(0); }
+      .main-content { margin-left: 0; max-width: 100%; padding: 24px 20px 64px; }
+      .mobile-menu-btn { display: inline-flex; }
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .grid-3 { grid-template-columns: 1fr; }
+      .map-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .figure-body--mermaid {
+        padding: 14px 12px;
+        align-items: flex-start;
+      }
+      .figure-body--mermaid pre.mermaid {
+        justify-content: flex-start;
+        min-width: 600px;
+      }
+      .figure-body--mermaid pre.mermaid svg {
+        min-width: 600px;
+      }
+      .figure-mobile-hint {
+        display: flex;
+      }
+      dialog.diagram-lightbox {
+        width: 100dvw;
+        height: 100dvh;
+        border-radius: 0;
+        border: none;
+      }
+    }
+    @media (max-width: 680px) {
+      .brand-logo { height: 22px; }
+      .brand-title { font-size: 13.5px; }
+      .brand-sub { display: none; }
+      .grid-2, .grid-4, .swot-grid { grid-template-columns: 1fr; }
+      .cover-hero { padding: 28px 22px; }
+      .cover-hero h1 { font-size: 24px; }
+      .chapter-title { font-size: 23px; }
+      .bar-row { grid-template-columns: 115px 1fr 64px; font-size: 12px; }
+    }
+    @media print {
+      .top-header, .sidebar, .progress-track, .pagination-bar,
+      .figure-zoom-btn, .figure-mobile-hint, dialog.diagram-lightbox { display: none !important; }
+      .main-content { margin-left: 0 !important; max-width: 100% !important; padding: 0 !important; }
+      .chapter-page { display: block !important; page-break-after: always; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Fixed Header -->
+  <header class="top-header">
+    <div class="brand-group" onclick="navigateTo('home')" title="홈(Executive Summary)으로 이동">
+      <img class="brand-logo" src="./images/irootel-logo.png" width="605" height="189" alt="(주)이루텔럭키 로고" />
+      <div>
+        <span class="brand-title">(주)이루텔럭키 경영전략 컨설팅 초안</span>
+        <span class="brand-sub">Executive Strategic Advisory · irootel.aionlabs.kr</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="btn mobile-menu-btn" onclick="toggleSidebar()">☰ 목차</button>
+      <button class="btn" onclick="navigateTo('home')">⌂ 홈</button>
+      <button class="btn btn-primary" id="printModeBtn" onclick="togglePrintAll()">전체 보기 / 인쇄</button>
+    </div>
+  </header>
+
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+
+  <div class="layout">
+    <!-- Left Sticky Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="nav-label">Consulting Report Contents</div>
+      <ul class="nav-list">
+        <li class="nav-item"><button data-target="home" class="active" onclick="navigateTo('home')"><span class="nav-num">00</span><span>Executive Summary (Home)</span></button></li>
+        <li class="nav-item"><button data-target="ch1" onclick="navigateTo('ch1')"><span class="nav-num">01</span><span>비즈니스 구조 및 전국 사업 이력</span></button></li>
+        <li class="nav-item"><button data-target="ch2" onclick="navigateTo('ch2')"><span class="nav-num">02</span><span>사업 영역 및 핵심 역량</span></button></li>
+        <li class="nav-item"><button data-target="ch3" onclick="navigateTo('ch3')"><span class="nav-num">03</span><span>경쟁환경 분석</span></button></li>
+        <li class="nav-item"><button data-target="ch4" onclick="navigateTo('ch4')"><span class="nav-num">04</span><span>서비스 차별화 전략 검토</span></button></li>
+        <li class="nav-item"><button data-target="ch5" onclick="navigateTo('ch5')"><span class="nav-num">05</span><span>ISP (Information Strategy Planning) 방안</span></button></li>
+        <li class="nav-item"><button data-target="ch6" onclick="navigateTo('ch6')"><span class="nav-num">06</span><span>경영 컨설팅 진단(안)</span></button></li>
+        <li class="nav-item"><button data-target="ch7" onclick="navigateTo('ch7')"><span class="nav-num">07</span><span>중장기 비전 아키텍처 및 확장 BM 8선</span></button></li>
+      </ul>
+
+      <div class="sidebar-meta">
+        <strong>Client Executive Briefing</strong>
+        대상: (주)이루텔럭키 남기웅 대표이사<br/>
+        본사: 경기 안양시 만안구 덕천로34번길 70<br/>
+        발행: 2026.11 Strategic Draft v1.0
+      </div>
+    </aside>
+
+    <!-- Main Report Pages -->
+    <main class="main-content">
+      <div class="page-sheet">
+
+        <!-- ==================== HOME / COVER ==================== -->
+        <section id="home" class="chapter-page active">
+          <div class="cover-hero">
+            <span class="cover-badge">EXECUTIVE MANAGEMENT CONSULTING DRAFT · 2026</span>
+            <h1>(주)이루텔럭키(이루텔)<br/>중장기 경영전략 및 기술혁신 컨설팅 초안</h1>
+            <p>
+              21년간 축적된 공공 무선통신·현장 인프라 역량 위에 <strong>C-ITS(차세대 지능형 교통체계)</strong>와
+              <strong>Matter(개방형 IoT 표준)</strong>, <strong>초정밀측위(RTK)</strong>를 결합하여
+              연 매출 24억 원대 공공 SI 강소기업에서 <strong>‘매출 100억 원대 글로벌 AI 모빌리티·도시 인프라 플랫폼 선도기업’</strong>으로 도약하기 위한 전략 청사진입니다.
+            </p>
+            <div class="cover-meta-row">
+              <div><strong>수신:</strong> 주식회사 이루텔럭키 남기웅 대표이사</div>
+              <div><strong>웹 리포트:</strong> https://irootel.aionlabs.kr</div>
+              <div><strong>문서 성격:</strong> 전략 진단 · ISP · 신사업 확장 초안</div>
+            </div>
+          </div>
+
+          <div class="grid-4">
+            <div class="kpi-card">
+              <div class="kpi-label">기업 업력 및 규모 (2025 기준)</div>
+              <div class="kpi-value">24.1억 원</div>
+              <div class="kpi-sub">업력 21년(2005 창업) · 임직원 10명<br/>2026.04 안양 신사옥 이전</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">전국 공공 구축 거점</div>
+              <div class="kpi-value">20+ 지자체</div>
+              <div class="kpi-sub">서울·대구·군포·용인·시흥·서초·공주·충주·경산·전북교육청 등</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">독점 조달·법정 인증 무기</div>
+              <div class="kpi-value">GS 1등급</div>
+              <div class="kpi-sub">조달청 S/W 3자단가(IMS v1.0)<br/>환경부 미세먼지 1등급 2종</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">현장 실증 안전 개선 성과</div>
+              <div class="kpi-value">민원 75%↓</div>
+              <div class="kpi-sub">정차 정확도 85%↑ · 낙상 25%↓<br/>(폴스탑·스마트 정류장 기준)</div>
+            </div>
+          </div>
+
+          <div class="figure-frame">
+            <div class="figure-header">
+              [Vision Blueprint] Matter 표준 및 C-ITS V2X 연계 차세대 이루텔 스마트 정류장 3D 공간 설계안
+              <span>Future Target Model</span>
+            </div>
+            <div class="figure-body">
+              <picture>
+                <source srcset="./images/smart-shelter-3d.webp" type="image/webp" />
+                <img src="./images/smart-shelter-3d.png" width="2730" height="1536" decoding="async" alt="(주)이루텔럭키 Matter & C-ITS 스마트 버스정류장 3D 설계도"
+                     onerror="this.closest('.figure-body').innerHTML='<div style=\'padding:36px;text-align:center;color:#64748B;border:1px dashed #CBD5E1;border-radius:6px;width:100%\'><strong>3D 공간 설계 이미지 경로 확인 필요</strong><br/>첨부된 <code>스마트 버스정류장_이루텔.png</code> 파일을 <code>./images/smart-shelter-3d.png</code> 경로에 배치해 주세요.</div>'" />
+              </picture>
+            </div>
+            <div class="figure-desc">
+              <strong>[도식 해설]</strong> 본 컨설팅 초안이 지향하는 현장 구현 목표 모델입니다. 도로변 <strong>폴스탑(Pole-Stop)</strong>은 AI 카메라·승객 대기 LED·휠체어 전용 버튼·충격완화 안전펜스를 통해 버스 무정차와 승하차 낙상을 예방하고, <strong>스마트 스크린 셸터</strong>는 태양광 지붕·C-ITS V2X 안테나·IRAIR 1등급 공기질 측정기·Matter 브릿지 제어기·전동 방풍막·온열의자를 통합하여 지자체의 총소유비용(TCO)을 절감하는 차세대 표준 인프라를 구현합니다.
+            </div>
+          </div>
+
+          <h2 class="sec-h2">컨설팅 보고서 목차 (Executive Navigation) <span class="sec-tag">7 Chapters</span></h2>
+          <div class="grid-2">
+            <div class="toc-card" onclick="navigateTo('ch1')">
+              <div class="toc-num">CHAPTER 01</div>
+              <div class="toc-title">비즈니스 구조 및 전국 사업 이력 (전국지도 기반)</div>
+              <div class="toc-desc">제조·시공·개발 완결형 프로필, 전국 지자체 구축 이력 지도, 3대 포트폴리오 및 3단계 진화 아키텍처</div>
+            </div>
+            <div class="toc-card" onclick="navigateTo('ch2')">
+              <div class="toc-num">CHAPTER 02</div>
+              <div class="toc-title">사업 영역 및 핵심 역량</div>
+              <div class="toc-desc">스마트 정류장 3D 인프라, 공공 B2G 무선망·셸터 3중 안전·RTK·IMS 아키텍처, 응용 솔루션 및 3대 경쟁 해자</div>
+            </div>
+            <div class="toc-card" onclick="navigateTo('ch3')">
+              <div class="toc-num">CHAPTER 03</div>
+              <div class="toc-title">경쟁환경 분석</div>
+              <div class="toc-desc">스마트 셸터 4대 전략군·매출 랭킹 및 ITS/BIS/RTK 3계층 경쟁 구도 분석, 시장 구조조정 틈새 기회 도출</div>
+            </div>
+            <div class="toc-card" onclick="navigateTo('ch4')">
+              <div class="toc-num">CHAPTER 04</div>
+              <div class="toc-title">서비스 차별화 전략 검토</div>
+              <div class="toc-desc">싱가포르 C-ITS 및 삼성·유럽 Matter 글로벌 벤치마킹, 실내 Native vs 실외 Bridge 이원화 및 B2B2G 포지셔닝</div>
+            </div>
+            <div class="toc-card" onclick="navigateTo('ch5')">
+              <div class="toc-num">CHAPTER 05</div>
+              <div class="toc-title">ISP (Information Strategy Planning) 방안</div>
+              <div class="toc-desc">전사적 아키텍처(BA·IA·TA), 2계층 보안·Matter 브릿지 게이트웨이 설계 및 예산충격 제로 4단계 마이그레이션</div>
+            </div>
+            <div class="toc-card" onclick="navigateTo('ch6')">
+              <div class="toc-num">CHAPTER 06</div>
+              <div class="toc-title">경영 컨설팅 진단(안)</div>
+              <div class="toc-desc">BCG Matrix·SWOT 정밀 진단, 3대 성장 병목(인력·B2G 편중·데이터 미수익화) 및 3단계 컨설팅 실행 모듈</div>
+            </div>
+            <div class="toc-card" style="grid-column: 1 / -1;" onclick="navigateTo('ch7')">
+              <div class="toc-num">CHAPTER 07</div>
+              <div class="toc-title">중장기 비전 아키텍처 및 확장 비즈니스 모델 8선</div>
+              <div class="toc-desc">글로벌 AI-RTK 플랫폼 비전, 국내 ESG·B2G 확장 모델 6선 + B2B 스마트건설·정밀농업 RTK + 해외 ODA 패키지 수출 전략</div>
+            </div>
+          </div>
+
+          <div class="pagination-bar">
+            <div></div>
+            <button class="btn btn-primary" onclick="navigateTo('ch1')">1장. 비즈니스 구조 및 전국 사업 이력 시작 →</button>
+          </div>
+        </section>
+
+        <!-- ==================== CHAPTER 1 ==================== -->
+        <section id="ch1" class="chapter-page">
+          <div class="chapter-kicker">Chapter 01 · Corporate Structure &amp; Footprint</div>
+          <h1 class="chapter-title">비즈니스 구조 및 전국 사업 이력</h1>
+
+          <div class="governing-box">
+            <div class="governing-label">Governing Message</div>
+            <p>
+              (주)이루텔럭키는 지난 21년간 공공 무선통신망(LTE/P-LTE) 구축으로 다진 현장 신뢰를 토대로,
+              <strong>제조(공장)·시공(정보통신공사)·개발(SW사업자)</strong>을 자체 내재화한 완결형 밸류체인을 구축했습니다.
+              수도권을 넘어 충청·강원·전북·영남 등 전국 20여 개 지자체에 걸친 사업 이력은 차기 플랫폼 스케일업의 가장 강력한 영업 자산입니다.
+            </p>
+          </div>
+
+          <h2 class="sec-h2">1.1. 기업 핵심 프로필: 제조·시공·개발 완결형 밸류체인 <span class="sec-tag">Corporate Profile</span></h2>
+          <div class="grid-3">
+            <div class="card card-top-accent">
+              <h3 class="sec-h3" style="margin-top:0;">제조 영역 (Hardware)</h3>
+              <ul class="clean-list">
+                <li><strong>공장등록증명서</strong> 보유 (자체 제조 사업장)</li>
+                <li>특허 3건 등록: 버스정류장용 스크린 셸터(지퍼쉐이드), 위치 기반 영상제공, 원격제어</li>
+                <li>환경부 미세먼지 간이측정기 <strong>성능인증 1등급</strong> (PoE·LTE 2종)</li>
+              </ul>
+            </div>
+            <div class="card card-top-accent">
+              <h3 class="sec-h3" style="margin-top:0;">시공 영역 (Construction)</h3>
+              <ul class="clean-list">
+                <li><strong>정보통신공사업 면허</strong> 보유 (2019.01 취득)</li>
+                <li>ISO 3종 인증 완비: ISO 9001(품질), ISO 14001(환경), ISO 45001(안전보건)</li>
+                <li>도로·정류장·산간 등 난이도 높은 옥외 현장 턴키(Turn-Key) 시공 역량</li>
+              </ul>
+            </div>
+            <div class="card card-top-accent">
+              <h3 class="sec-h3" style="margin-top:0;">개발 영역 (Software &amp; R&amp;D)</h3>
+              <ul class="clean-list">
+                <li><strong>소프트웨어사업자</strong> 신고(2016) 및 <strong>기업부설연구소</strong> 설립(2019)</li>
+                <li><strong>GS인증 1등급</strong> 획득 및 <strong>조달청 디지털서비스몰 S/W 제3자 단가계약</strong> (IMS v1.0)</li>
+                <li>벤처기업 · Inno-Biz(기술혁신형) · Main-Biz(경영혁신형) 3대 공인 인증</li>
+              </ul>
+            </div>
+          </div>
+
+          <h2 class="sec-h2">1.2. 전국 사업 이력 (전국지도 기반 인터랙티브 현황) <span class="sec-tag">Nationwide Track Record</span></h2>
+          <div class="figure-frame">
+            <div class="figure-header">
+              [Figure 1-1] (주)이루텔럭키 전국 주요 지자체·공공기관 구축 거점 지도 (2014~2026)
+              <span>권역을 클릭하여 상세 실적 확인</span>
+            </div>
+            <div class="figure-body">
+              <div class="map-grid">
+                <!-- Clean Stylized South Korea SVG Map -->
+                <svg class="korea-svg" viewBox="0 0 360 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="대한민국 전국 사업 이력 지도">
+                  <defs>
+                    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+                      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.08"/>
+                    </filter>
+                  </defs>
+                  <!-- Mainland Silhouette (Clean Executive Geometric Style) -->
+                  <path d="M128,44 L175,32 L218,46 L252,88 L272,148 L296,204 L302,256 L282,306 L252,332 L214,344 L172,356 L124,368 L94,348 L88,302 L98,256 L82,216 L76,174 L94,132 L86,92 L106,62 Z"
+                        fill="#ECFDF5" stroke="#005A43" stroke-width="2" filter="url(#softShadow)"/>
+                  <!-- Jeju Island -->
+                  <ellipse cx="122" cy="408" rx="28" ry="12" fill="#ECFDF5" stroke="#005A43" stroke-width="1.8"/>
+                  <!-- Region Divider Hints -->
+                  <path d="M104,134 L184,134 L256,120 M100,214 L196,206 L286,216 M174,208 L188,348" stroke="#A7F3D0" stroke-width="1.2" stroke-dasharray="4 4" fill="none"/>
+
+                  <!-- Pins -->
+                  <g class="map-pin active" data-region="metro" onclick="selectRegion('metro')">
+                    <circle cx="132" cy="106" r="18" fill="#005A43" fill-opacity="0.14"/>
+                    <circle class="pin-dot" cx="132" cy="106" r="9" fill="#B45309" stroke="#fff" stroke-width="2.5"/>
+                    <text x="150" y="102" font-size="12" font-weight="700" fill="#0F172A">수도권 핵심 거점</text>
+                    <text x="150" y="117" font-size="10.5" fill="#475569">서울·군포·안양·용인·시흥 등</text>
+                  </g>
+
+                  <g class="map-pin" data-region="gangwon" onclick="selectRegion('gangwon')">
+                    <circle cx="222" cy="102" r="14" fill="#005A43" fill-opacity="0.12"/>
+                    <circle class="pin-dot" cx="222" cy="102" r="7.5" fill="#005A43" stroke="#fff" stroke-width="2"/>
+                    <text x="236" y="99" font-size="11.5" font-weight="700" fill="#0F172A">강원권</text>
+                    <text x="236" y="113" font-size="10" fill="#475569">원주·횡성·동해</text>
+                  </g>
+
+                  <g class="map-pin" data-region="chungcheong" onclick="selectRegion('chungcheong')">
+                    <circle cx="152" cy="182" r="15" fill="#005A43" fill-opacity="0.12"/>
+                    <circle class="pin-dot" cx="152" cy="182" r="8" fill="#005A43" stroke="#fff" stroke-width="2"/>
+                    <text x="168" y="179" font-size="11.5" font-weight="700" fill="#0F172A">충청권</text>
+                    <text x="168" y="193" font-size="10" fill="#475569">공주·충주·청주·진천</text>
+                  </g>
+
+                  <g class="map-pin" data-region="gyeongbuk" onclick="selectRegion('gyeongbuk')">
+                    <circle cx="242" cy="224" r="16" fill="#005A43" fill-opacity="0.12"/>
+                    <circle class="pin-dot" cx="242" cy="224" r="8" fill="#005A43" stroke="#fff" stroke-width="2"/>
+                    <text x="200" y="252" font-size="11.5" font-weight="700" fill="#0F172A">대구·경북권</text>
+                    <text x="195" y="266" font-size="10" fill="#475569">대구·경산·포항·경주·안동</text>
+                  </g>
+
+                  <g class="map-pin" data-region="honam" onclick="selectRegion('honam')">
+                    <circle cx="132" cy="272" r="15" fill="#005A43" fill-opacity="0.12"/>
+                    <circle class="pin-dot" cx="132" cy="272" r="8" fill="#005A43" stroke="#fff" stroke-width="2"/>
+                    <text x="102" y="302" font-size="11.5" font-weight="700" fill="#0F172A">호남권</text>
+                    <text x="94" y="316" font-size="10" fill="#475569">전북교육청·군산·광양</text>
+                  </g>
+                </svg>
+
+                <!-- Interactive Region Detail Panel -->
+                <div class="region-detail-panel">
+                  <div class="region-tabs">
+                    <button class="region-tab active" data-region="metro" onclick="selectRegion('metro')">수도권 (본사·핵심)</button>
+                    <button class="region-tab" data-region="chungcheong" onclick="selectRegion('chungcheong')">충청권</button>
+                    <button class="region-tab" data-region="gyeongbuk" onclick="selectRegion('gyeongbuk')">대구·경북권</button>
+                    <button class="region-tab" data-region="honam" onclick="selectRegion('honam')">호남권</button>
+                    <button class="region-tab" data-region="gangwon" onclick="selectRegion('gangwon')">강원권</button>
+                  </div>
+                  <div id="regionContent"></div>
+                </div>
+              </div>
+            </div>
+            <div class="figure-desc">
+              <strong>[도식 해설]</strong> 이루텔의 사업 거점은 본사(안양) 인접 수도권 남부(군포·안양·시흥·용인·광명·서초)에 고밀도 클러스터를 형성하고 있으며, 2024~2025년 초정밀측위(RTK) 전국화를 기점으로 충청(공주·충주)·경북(경산)·전북(전북교육청·군산)·강원(동해)까지 전국 확산 교두보를 확보했습니다. 기존 구축 지자체는 신규 솔루션(IMS v1.0·Matter 브릿지) 교차판매(Cross-selling)의 1차 핵심 타겟입니다.
+            </div>
+          </div>
+
+          <h2 class="sec-h2">1.3. 비즈니스 포트폴리오: 3대 사업부문 <span class="sec-tag">3 Core Pillars</span></h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:16%;">사업 부문</th>
+                  <th style="width:22%;">세부 제품·솔루션</th>
+                  <th style="width:36%;">핵심 기술 및 차별화 포인트</th>
+                  <th style="width:26%;">보유 인증 및 주요 레퍼런스</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="badge badge-green">시스템 및 장비</span></td>
+                  <td><strong>폴스탑 (Pole-Stop)</strong><br/>스마트 스크린 셸터</td>
+                  <td>능동형 AI 영상인식(교통약자 식별)·LED 무정차 방지, 특허 지퍼쉐이드 전동 방풍막, 3중 끼임방지 안전장치, 온열의자 원격제어, 충격완화 펜스</td>
+                  <td>GS인증 1등급, 스크린 셸터 특허, 군포시 스마트 정류장 25개소(2025.03 완료)</td>
+                </tr>
+                <tr>
+                  <td><span class="badge badge-green">솔루션 (S/W)</span></td>
+                  <td><strong>교통시설물 통합관리 (IMS v1.0)</strong><br/>IoT 통합관제 (IROS)</td>
+                  <td>정류장 시설물·센서·전력 통합 웹 관제, 알럿 챗봇·APM 유지보수 이력 관리, 분산 LTE/P-LTE 라우터 원격 리부팅 및 GPS 장애 추적</td>
+                  <td>조달청 디지털서비스몰 S/W 3자단가(식별번호 25946789 등 7종), 서울·군포·시흥·안양 등 20+ 지자체</td>
+                </tr>
+                <tr>
+                  <td><span class="badge badge-green">IoT &amp; 측위</span></td>
+                  <td><strong>초정밀측위 (RTK)</strong><br/>공기질 측정 (IRAIR)<br/>버스 승객안내기 · 공공 Wi-Fi</td>
+                  <td>LG U+ 200+ 기준국 연동 cm급 보정 및 Open API(Webhook), 7-in-1(PM2.5/10·CO2·tVOCs·방사능·온습도) 공기질 관제, 고성능 공공 Wi-Fi</td>
+                  <td>환경부 성능인증 1등급(PoE·LTE 2종), 용인·시흥 도로관리, 공주·충주·경산 BIS, 서초·전북 통학차량 RTK</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 class="sec-h2">1.4. History(3단계 성장 궤적) 및 End-to-End 비즈니스 아키텍처 <span class="sec-tag">Evolution</span></h2>
+          <div class="grid-3">
+            <div class="card">
+              <span class="badge badge-slate">제1기 · 2005 ~ 2018</span>
+              <h3 class="sec-h3" style="margin-top:10px;">공공 무선망 구축기</h3>
+              <p style="font-size:13.5px;">2005년 창업 및 2013년 법인 전환. 광명·시흥·대구·포항·서울 BIT LTE/P-LTE 무선망, 2015년 서울 지하철 키오스크·따릉이 1세대 스테이션 LTE망, 2017년 기상청 관제망 구축으로 공공 B2G 신뢰 기반 확보.</p>
+            </div>
+            <div class="card">
+              <span class="badge badge-slate">제2기 · 2019 ~ 2023</span>
+              <h3 class="sec-h3" style="margin-top:10px;">R&amp;D 내재화·IoT 확장기</h3>
+              <p style="font-size:13.5px;">정보통신공사업(2019.01)·기업부설연구소(2019.05) 설립. 벤처·Inno-Biz 인증 및 환경부 미세먼지 1등급(PoE 2022.02 / LTE 2023.07) 획득. 군포시 롤스크린 IoT 원격제어·공기질 상시 모니터링 상용화.</p>
+            </div>
+            <div class="card card-top-accent">
+              <span class="badge badge-green">제3기 · 2024 ~ 2026</span>
+              <h3 class="sec-h3" style="margin-top:10px;">AI·RTK·조달 플랫폼 도약기</h3>
+              <p style="font-size:13.5px;">Main-Biz 인증(2024.05). 전북교육청·서초·공주·충주·경산·용인·시흥 RTK 전국화 달성. 군포 스마트 정류장 25개소 완성, <strong>IMS v1.0 조달청 3자단가 등록(2025.10)</strong> 및 안양 신사옥 이전(2026.04).</p>
+            </div>
+          </div>
+
+          <div class="figure-frame">
+            <div class="figure-header">
+              [Figure 1-2] 이루텔 End-to-End 스마트 인프라 비즈니스 아키텍처
+              <span>Value Chain Architecture</span>
+            </div>
+            <div class="figure-body">
+              <pre class="mermaid">
+flowchart LR
+    subgraph L1 ["1. 현장 인프라 &amp; IoT 단말 (Edge)"]
+        A1["폴스탑 (Pole-Stop)<br/>AI 카메라·LED 알림·온열의자"]
+        A2["스마트 스크린 셸터<br/>3중 안전센서·특허 지퍼쉐이드"]
+        A3["IRAIR 7-in-1 &amp; RTK 단말<br/>1등급 공기질·cm급 측위"]
+    end
+    subgraph L2 ["2. 초연결 통신 &amp; 보정망 (Network)"]
+        B1["LTE / P-LTE 보안 폐쇄망<br/>SSLVPN 터널링·Watchdog"]
+        B2["LG U+ 200+ 기준국 연동<br/>GNSS 오차 실시간 보정"]
+        B3["공공 Wi-Fi &amp; PoE 유선망<br/>고성능 로컬 액세스"]
+    end
+    subgraph L3 ["3. 통합 관제 플랫폼 (Platform)"]
+        C1["교통시설물 통합관리 (IMS v1.0)<br/>조달청 3자단가·GS 1등급"]
+        C2["IoT 통합관제 (IROS)<br/>무선장비 원격제어·GPS 추적"]
+        C3["IRAIR Cloud &amp; Open API<br/>빅데이터 분석·Webhook 연동"]
+    end
+    subgraph L4 ["4. 고객 가치 &amp; 정책 성과 (Value)"]
+        D1["지자체·교육청 (B2G)<br/>무정차 민원 75%↓·행정효율"]
+        D2["교통약자·시민<br/>낙상사고 25%↓·체감 안전↑"]
+        D3["민간·산업·해외 (B2B/ODA)<br/>스마트건설·농기계·개도국 수출"]
+    end
+    L1 --> L2 --> L3 --> L4
+              </pre>
+            </div>
+            <div class="figure-desc">
+              <strong>[도식 해설]</strong> 이루텔은 단순 통신장비 납품에서 벗어나 <strong>현장 센싱·구동기(Edge) → 전용 보안망·초정밀 보정망(Network) → 조달 등록 통합관제(Platform) → 정책·산업 가치(Value)</strong>로 이어지는 수직 계열화 구조를 완성했습니다. 이 종단간(End-to-End) 아키텍처는 외주 의존도를 최소화하고 향후 구독형 소프트웨어(SaaS) 및 데이터(DaaS) 사업으로 확장하는 기술적 모태가 됩니다.
+            </div>
+          </div>
+
+          <div class="pagination-bar">
+            <button class="btn" onclick="navigateTo('home')">← 홈 (Executive Summary)</button>
+            <button class="btn" onclick="navigateTo('home')">⌂ 목차</button>
+            <button class="btn btn-primary" onclick="navigateTo('ch2')">2장. 사업 영역 및 핵심 역량 →</button>
+          </div>
+        </section>
+
+        <!-- ==================== CHAPTER 2 ==================== -->
+        <section id="ch2" class="chapter-page">
+          <div class="chapter-kicker">Chapter 02 · Business Domains &amp; Core Competencies</div>
+          <h1 class="chapter-title">사업 영역 및 핵심 역량</h1>
+
+          <div class="governing-box">
+            <div class="governing-label">Governing Message</div>
+            <p>
+              이루텔의 핵심 경쟁력은 <strong>‘유선 굴착이 불가능하고 가혹한 옥외 공공 현장’</strong>에 최적화된
+              무선망(LTE/P-LTE), 특허 스크린 셸터, 초정밀측위(RTK), 그리고 <strong>조달청 제3자 단가계약 통합관제(IMS v1.0)</strong>를
+              하나의 턴키(Turn-Key) 엔지니어링 체계로 묶어낼 수 있다는 점입니다. 이는 대형 SI 기업이 대응하기 어려운 중소·중견 지자체 틈새시장에서 강력한 진입장벽으로 작동합니다.
+            </p>
+          </div>
+
+          <h2 class="sec-h2">2.1. 스마트 정류장 인프라 구성 및 현장 구현 설계 <span class="sec-tag">Physical Infrastructure</span></h2>
+          <div class="figure-frame">
+            <div class="figure-header">
+              [Figure 2-1] 폴스탑(Pole-Stop) · 스마트 스크린 셸터 · IRAIR 통합 현장 공간 구현안
+              <span>Turn-Key Smart Station</span>
+            </div>
+            <div class="figure-body">
+              <picture>
+                <source srcset="./images/smart-shelter-3d.webp" type="image/webp" />
+                <img src="./images/smart-shelter-3d.png" width="2730" height="1536" decoding="async" alt="이루텔 스마트 정류장 3D 공간 설계"
+                     onerror="this.closest('.figure-body').innerHTML='<div style=\'padding:36px;text-align:center;color:#64748B;border:1px dashed #CBD5E1;border-radius:6px;width:100%\'>이미지 파일(<code>./images/smart-shelter-3d.png</code>)을 배치하면 3D 공간 설계도가 표시됩니다.</div>'" />
+              </picture>
+            </div>
+            <div class="figure-desc">
+              <strong>[공간 설계 해설]</strong> 1개소당 1~4억 원이 소요되는 대형 유리 부스형 셸터와 달리, 이루텔은 <strong>협소 보도에도 설치 가능한 개방형·모듈형 설계(군포시 25개소 기준 개소당 약 4,800만 원대 가성비)</strong>를 구현합니다. 좌측 <strong>폴스탑</strong>은 능동형 AI 카메라·승객 대기 LED·휠체어 전용 버튼·충격완화 안전펜스로 무정차 민원 75% 감소와 정차 정확도 85% 개선을 달성하며, 우측 <strong>스마트 스크린 셸터</strong>는 특허 지퍼쉐이드 전동 방풍막·3중 끼임방지 센서·환경부 1등급 IRAIR 공기질 측정기·온열의자·공공 Wi-Fi를 일체형으로 제공합니다.
+            </div>
+          </div>
+
+          <h2 class="sec-h2">2.2. 4대 핵심 시스템 및 네트워크 아키텍처 <span class="sec-tag">System Architecture</span></h2>
+
+          <h3 class="sec-h3">① 공공 B2G 무선망(LTE/P-LTE) 및 보안 통신 아키텍처</h3>
+          <div class="figure-frame">
+            <div class="figure-header">
+              [Figure 2-2] 공공 B2G 산업용 무선망(P-LTE 폐쇄망 · SSLVPN) End-to-End 아키텍처
+              <span>Connectivity Layer</span>
+            </div>
+            <div class="figure-body">
+              <pre class="mermaid">
+flowchart LR
+    subgraph Field ["1. 현장 공공 설비 (Edge)"]
+        BIT["지자체 BIT 전광판<br/>(광명·시흥·대구·포항·서울)"]
+        AWS["기상청 AWS 관측기<br/>(산간·도서 유선불가 지역)"]
+        KIOSK["지하철 키오스크 · 따릉이<br/>(1세대 LTE 스테이션 실적)"]
+    end
+    subgraph GW ["2. 산업용 무선 게이트웨이"]
+        RTR["산업용 LTE / P-LTE 라우터<br/>• -30℃~70℃ 옥외 광온도 설계<br/>• Watchdog 자가복구 · Failover"]
+    end
+    subgraph Core ["3. 이통사 코어 보안망"]
+        PLTE["기업전용 P-LTE 게이트웨이<br/>(사설 IP · 공용인터넷 원천 차단)"]
+        VPN["상용 LTE + SSL/IPsec VPN<br/>(국정원 검증필 암호화 터널)"]
+    end
+    subgraph Center ["4. 공공 관제센터"]
+        BIS["지자체 BIS / 기상청 방재센터"]
+        IROS["이루텔 IROS 무선관제<br/>(헬스체크 · 원격리부팅 · FOTA)"]
+    end
+    BIT &amp; AWS &amp; KIOSK -->|LAN / Serial| RTR
+    RTR -->|전용 APN 분리| PLTE
+    RTR -->|암호화 터널| VPN
+    PLTE &amp; VPN --> BIS &amp; IROS
+              </pre>
+            </div>
+            <div class="figure-desc">
+              <strong>[도식 해설]</strong> 도로 굴착과 광케이블 포설이 불가능한 정류장·산간 현장 및 내부 행정망 분리가 필수인 역사 현장에 <strong>토목 공사 제로(Zero-Digging)</strong>로 통신 신경망을 구축하는 구조입니다. 특히 기업전용 P-LTE는 코어망 단계에서 공용 인터넷과 트래픽을 물리·논리적으로 분리해 전광판 해킹을 원천 차단하며, 산업용 라우터의 Watchdog 자가복구와 IROS 원격 관제로 현장 출동 비용을 극소화합니다. <br/><em>(※ 참고: 2026년 1월 서울지하철 1~8호선 신형 키오스크 전면 교체 및 2세대 LTE-M1 뉴따릉이는 해당 공공 무선망 시장의 최신 진화 동향이며, 이루텔은 2015년 1세대 LTE망 구축 레퍼런스를 보유함)</em>
+            </div>
+          </div>
+
+          <h3 class="sec-h3">② 스마트 스크린 셸터 ‘3중 안전 인터록’ 및 초정밀측위(RTK)·IMS v1.0 아키텍처</h3>
+          <div class="figure-frame">
+            <div class="figure-header">
+              [Figure 2-3] 스크린 셸터 3중 안전 인터록 로직 및 RTK · IMS v1.0 통합관제 흐름
+              <span>Safety &amp; Platform Layer</span>
+            </div>
+            <div class="figure-body">
+              <pre class="mermaid">
+flowchart LR
+    subgraph Safety ["A. 스마트 스크린 셸터 3중 안전 인터록"]
+        S1["기상·원격 개폐 트리거<br/>(한파·강풍·IMS 명령)"] --> S2{"3중 센서 동시 스캔<br/>① AI 재실카메라<br/>② 마이크로웨이브<br/>③ 접촉 터치센서"}
+        S2 -->|승객 접근·접촉 감지| S3["모터 즉시 정지 및<br/>상향 역회전 + 음성경고"]
+        S3 -.-> S2
+        S2 -->|안전 확인 Clear| S4["특허 지퍼쉐이드 작동<br/>&amp; IMS 상태 동기화"]
+    end
+    subgraph RTK_IMS ["B. 초정밀측위(RTK) &amp; IMS v1.0 통합관제"]
+        R1["다중 위성(GNSS) +<br/>LG U+ 200+ 기준국(15~20km)"] --> R2["보정 서버(RTCM) → LTE<br/>버스·도로관리차 10cm 측위"]
+        R2 --> R3["조달청 3자단가 IMS v1.0<br/>(식별번호 25946789 · GS 1등급)<br/>• 온열의자 전력·ON/OFF<br/>• 장애 챗봇 · APM 이력(4h/12h SLA)"]
+    end
+    S4 --> R3
+              </pre>
+            </div>
+            <div class="figure-desc">
+              <strong>[도식 해설]</strong> 좌측은 원격 자동 개폐 시 시민 끼임 사고를 원천 차단하는 <strong>3중 안전 인터록(Interlock)</strong> 메커니즘으로, 지자체장의 중대재해·배상 책임을 예방합니다. 우측은 지자체가 수십억 원의 자체 기준국을 짓지 않고도 <strong>LG U+ 200여 개 기준국 구독 연동</strong>으로 cm급 버스·도로관제를 구현하고, <strong>조달청 디지털서비스몰 제3자 단가계약(IMS v1.0 기본·커스터마이징 4종·유지관리 A/B Type)</strong>을 통해 입찰 지연 없이 통합 운영·유지보수하는 구조입니다.
+            </div>
+          </div>
+
+          <h2 class="sec-h2">2.3. 보유 기술 · 응용 솔루션 및 3대 핵심 역량 <span class="sec-tag">Tech &amp; Moat</span></h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3 class="sec-h3" style="margin-top:0;">4대 핵심 보유 기술</h3>
+              <ul class="clean-list">
+                <li><strong>IoT 환경·안전 센싱:</strong> 환경부 1등급 IRAIR 7-in-1(PoE/LTE) 및 3중 안전·AI 영상인식 센싱</li>
+                <li><strong>RTK 초정밀측위 현장 운영:</strong> LG U+ 200+ 기준국 및 국토지리정보원 이중화 연동, NMEA/RTCM·Webhook API 운영</li>
+                <li><strong>P-LTE(라우터) 로컬 네트워크 운영:</strong> 광온도 산업용 라우터, 폐쇄망 VPN, 공공 Wi-Fi 및 PoE 로컬망 설계</li>
+                <li><strong>IMS &amp; IROS 통합관제 솔루션:</strong> GS 1등급 웹 통합관리(시설물·전력·APM 이력) 및 무선장비 원격 리부팅(IROS)</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3 class="sec-h3" style="margin-top:0;">5대 B2G·B2B 응용 솔루션 확장 영역</h3>
+              <ul class="clean-list">
+                <li><strong>도로관리 (RTK + AI Vision):</strong> 용인·시흥시 구축 실적 기반 포트홀·도로파손 정밀 탐지(민원 19%↓·배상금 25%↓ 성과 사례)</li>
+                <li><strong>모빌리티 위치추적 (B2B/B2G):</strong> 서초구 영유아·효도버스, 전북교육청 통학차량 및 특수차량 초정밀 관제</li>
+                <li><strong>자율주행 (B2B):</strong> 자율주행 셔틀·농기계·로봇용 cm급 경로 추종 및 보조 측위</li>
+                <li><strong>스마트건설 (B2B):</strong> 굴착기·토목장비 3D 작업면 모니터링(MG/MC) 및 안전사고 감지</li>
+                <li><strong>물류 (B2B):</strong> 풀무원·이케아 등 레퍼런스 기반 야드·항만·물류차량 정밀 추적</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="grid-3">
+            <div class="card card-top-accent">
+              <div class="kpi-label">CORE MOAT 01</div>
+              <h3 class="sec-h3" style="margin-top:4px;">공공조달 패스트트랙 진입장벽</h3>
+              <p style="font-size:13.5px;">GS 1등급 + 조달청 디지털서비스몰 제3자 단가계약(7개 식별번호) 및 환경부 1등급 인증으로 공무원에게 <strong>수의계약 신속 발주 및 구매자 면책</strong> 혜택을 제공합니다.</p>
+            </div>
+            <div class="card card-top-accent">
+              <div class="kpi-label">CORE MOAT 02</div>
+              <h3 class="sec-h3" style="margin-top:4px;">H/W·통신·S/W 일체형 엔지니어링</h3>
+              <p style="font-size:13.5px;">공장(제조)·정보통신공사(시공)·SW사업자(개발)·연구소(R&amp;D)를 모두 자체 보유하여 장애 발생 시 책임 전가 없이 원스톱 트러블슈팅이 가능합니다.</p>
+            </div>
+            <div class="card card-top-accent">
+              <div class="kpi-label">CORE MOAT 03</div>
+              <h3 class="sec-h3" style="margin-top:4px;">지자체·통신사 생태계 영업력</h3>
+              <p style="font-size:13.5px;">LG U+·KT와의 긴밀한 파트너십과 전국 20여 개 지자체 구축 실적을 기반으로 후속 고도화(BIS→RTK→스마트 정류장) 연계 수주에 유리한 고지를 점유합니다.</p>
+            </div>
+          </div>
+
+          <div class="pagination-bar">
+            <button class="btn" onclick="navigateTo('ch1')">← 1장. 비즈니스 구조 및 전국 이력</button>
+            <button class="btn" onclick="navigateTo('home')">⌂ 홈</button>
+            <button class="btn btn-primary" onclick="navigateTo('ch3')">3장. 경쟁환경 분석 →</button>
+          </div>
+        </section>
+
+        <!-- ==================== CHAPTER 3 ==================== -->
+        <section id="ch3" class="chapter-page">
+          <div class="chapter-kicker">Chapter 03 · Competitive Landscape</div>
+          <h1 class="chapter-title">경쟁환경 분석</h1>
+
+          <div class="governing-box">
+            <div class="governing-label">Governing Message</div>
+            <p>
+              국내 스마트 셸터 시장은 고비용 밀폐형 부스 보급기를 지나 <strong>운영비(OPEX) 절감·법정 인증·재무 안정성 중심의 2차 구조조정기(Shakeout)</strong>에 진입했습니다.
+              대형 SI와 제조 강자가 고비용·대규모 SOC에 집중하는 사이, 이루텔은 <strong>① 저예산·협소보도 특화 스크린 셸터</strong>와
+              <strong>② 타사 이탈 정류장을 흡수하는 원격 통합관제(IMS+Matter 브릿지)</strong>, <strong>③ 움직이는 차량(RTK)과 고정된 정류장을 동시 제어하는 융합 포지션</strong>으로 명확한 승부처를 확보해야 합니다.
+            </p>
+          </div>
+
+          <h2 class="sec-h2">3.1. 스마트 셸터(스마트 버스정류장) 시장 경쟁 구도 <span class="sec-tag">Smart Shelter Market</span></h2>
+          <p class="lead">
+            서울 성동구(56개소 운영, 주민 만족도 94%)의 경우 2026년 기준 신규 설치 없이 기존 시설 유지보수·청소비로만 연간 약 5.97억 원(개소당 연 약 1,067만 원)이 투입되고 있어 지자체의 핵심 화두가 ‘초기 설치’에서 <strong>‘유지관리 효율화 및 가성비’</strong>로 급격히 이동했습니다. 동시에 초기 시장 진입 업체 중 일부가 외형 급감이나 폐업·유지관리 계약 불이행을 겪으면서 발주처의 기술·인증·사후관리 검증이 대폭 강화되었습니다.
+          </p>
+
+          <div class="figure-frame">
+            <div class="figure-header">
+              [Figure 3-1] 국내 스마트 셸터 주요 경쟁 기업 전사 매출액 비교 (2025년 공시·조사 기준, 억원)
+              <span>Market Scale Benchmarking</span>
+            </div>
+            <div class="figure-body">
+              <div class="bar-chart">
+                <div class="bar-row"><div class="bar-name">이피코리아(주)</div><div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div><div class="bar-val">1,437.9억</div></div>
+                <div class="bar-row"><div class="bar-name">(주)포커스에이아이</div><div class="bar-track"><div class="bar-fill" style="width:31.5%;"></div></div><div class="bar-val">453.1억</div></div>
+                <div class="bar-row"><div class="bar-name">(주)새움 (NET 보유)</div><div class="bar-track"><div class="bar-fill accent" style="width:14.0%;"></div></div><div class="bar-val">201.8억</div></div>
+                <div class="bar-row"><div class="bar-name">제이씨데코코리아</div><div class="bar-track"><div class="bar-fill" style="width:9.5%;"></div></div><div class="bar-val">137.0억</div></div>
+                <div class="bar-row"><div class="bar-name">(주)씨티이안</div><div class="bar-track"><div class="bar-fill" style="width:3.5%;"></div></div><div class="bar-val">50.2억</div></div>
+                <div class="bar-row"><div class="bar-name" style="color:#005A43;">(주)이루텔럭키 ★</div><div class="bar-track"><div class="bar-fill primary" style="width:2.5%;"></div></div><div class="bar-val" style="color:#005A43;">24.1억</div></div>
+                <div class="bar-row"><div class="bar-name">(주)싱스웰</div><div class="bar-track"><div class="bar-fill" style="width:1.8%;"></div></div><div class="bar-val">14.3억</div></div>
+              </div>
+            </div>
+            <div class="figure-desc">
+              <strong>[그래프 해설]</strong> 이피코리아(UPS·공조 본업 포함)와 포커스에이아이(영상보안 상장사)가 재무 체력을 앞세워 대형 부스 시장을 선도하며, (주)새움은 업계 최초 행안부 재난안전신기술(NET) 인증을 무기로 가파르게 성장 중입니다. 이루텔럭키(24.1억)는 대형 부스 전면전 대신 <strong>협소보도 저예산 스크린 셸터 + 1등급 센서 + 조달 3자단가 SW</strong>로 수익성과 확장성이 높은 틈새 영역을 공략하고 있습니다. <em>(※ 비상장사 전사 매출 기준이며 스마트 셸터 사업부 비중은 기업별로 상이함)</em>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>전략 그룹</th>
+                  <th>대표 기업 (2025 매출)</th>
+                  <th>핵심 무기 및 조달 인증</th>
+                  <th>주요 실적 및 포지션 진단</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="badge badge-slate">① 대형 공조·보안·신기술</span></td>
+                  <td><strong>이피코리아</strong> (1,438억)<br/><strong>포커스에이아이</strong> (453억)<br/><strong>새움</strong> (202억)</td>
+                  <td>국토부 혁신제품(이피), 조달우수 CCTV(포커스), <strong>행안부 재난안전신기술 NET</strong>(새움)</td>
+                  <td>성동구(56개소), 성남·당진·양산·통영 등 대형 밀폐 부스 수주 주도. NET·혁신제품을 통한 수의·우선구매 독주</td>
+                </tr>
+                <tr>
+                  <td><span class="badge badge-slate">② 공공디자인·MAS 제조</span></td>
+                  <td><strong>씨티이안</strong> (50.2억)</td>
+                  <td>나라장터 MAS(CTB 시리즈) 다수 등록, 디자인대상 장관 표창</td>
+                  <td>누적 52건 공사 실적. 구조물·미관 설계 강자이나 ICT·원격관제 SW 고도화 압박 직면</td>
+                </tr>
+                <tr>
+                  <td><span class="badge badge-slate">③ DOOH 옥외광고·BTO</span></td>
+                  <td><strong>제이씨데코코리아</strong> (137억)<br/><strong>엠앤엠네트웍스</strong></td>
+                  <td>글로벌 옥외광고 운영력, 디지털 사이니지 플랫폼(D'ooh)</td>
+                  <td>서울 종로 중앙차로·서초 등 핵심 상권 중심의 민간투자(광고수익 연계) 비예산 모델 특화</td>
+                </tr>
+                <tr class="tr-highlight">
+                  <td><span class="badge badge-green">④ 경량·AIoT·SW 강소</span></td>
+                  <td><strong>(주)이루텔럭키 (24.1억)</strong><br/>싱스웰 (14.3억)</td>
+                  <td><strong>스크린 셸터 특허, 환경부 1등급(2종), GS 1등급 &amp; 조달청 SW 3자단가(IMS)</strong></td>
+                  <td>이루텔은 군포 25개소(12억) 가성비 모델 완성. 싱스웰(서울 중구·강남 40개소 관제) 대비 이루텔은 자체 H/W+센서+표준(Matter)으로 차별화 필수</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 class="sec-h2">3.2. ITS · 대중교통(BIS/RTK) · 관제 SI 분야 경쟁 분석 <span class="sec-tag">ITS &amp; RTK Ecosystem</span></h2>
+          <div class="figure-frame">
+            <div class="figure-header">
+              [Figure 3-2] 국내 초정밀측위(RTK) 및 교통 SI·BIS 3계층 시장 생태계 구도
+              <span>3-Tier Market Structure</span>
+            </div>
+            <div class="figure-body">
+              <pre class="mermaid">
+flowchart TB
+    subgraph L1 ["Layer 1. 전국 RTK 인프라 &amp; 대국민 플랫폼 (협력/생태계 파트너)"]
+        LGU["LG유플러스 (기준국 200+ / 구독형 RTK)<br/>이루텔 핵심 B2G 협력 파트너"]
+        KT["KT (지사 기준국 + Swift Nav)<br/>자율주행·물류 정밀측위"]
+        KAKAO["카카오맵 (대국민 초정밀 버스 UI)<br/>인천·부산·제주·서울 파일럿"]
+    end
+    subgraph L2 ["Layer 2. 대형 교통 SI / ITS 전통 강자 (600~1,800억대 · 고정비 부담)"]
+        BIG["에스트래픽 (1,682억) · 대보정보통신 (1,165억)<br/>싸인텔레콤 (643억) · 삼원에프에이 (611억)<br/>고속도로·철도·대도시 대규모 SOC 턴키 과점"]
+    end
+    subgraph L3 ["Layer 3. 특화 SW · 데이터 · 민첩 강소기업 (20~70억대 · 고효율)"]
+        IR["(주)이루텔럭키 (24.1억)<br/>LGU+ RTK 전국화 최다급 + IMS 3자단가 + 스크린 셸터"]
+        OTH["대신네트웍스 (71.9억 · 클라우드 BIS/전국 NI)<br/>아로정보기술 (37.5억 · 네이버 관계사 · ODsay API)"]
+    end
+    L1 -->|보정회선·API 공급 및 공동 영업| L3
+    L1 <-->|광역 컨소시엄| L2
+    L2 <-.->|중소 지자체 BIS 고도화·분리발주 경합| L3
+              </pre>
+            </div>
+            <div class="figure-desc">
+              <strong>[도식 해설]</strong> 에스트래픽(1,682억)이나 대보정보통신(1,165억, 2025 영업손실 -45억) 등 대형 교통 SI 기업은 대규모 SOC 수주 공백과 고정 인건비 변동성에 노출되어 있습니다. 반면 이루텔은 통신사의 구독형 RTK 인프라를 레버리지하고 조달청 제3자 단가계약(IMS v1.0)을 결합함으로써, 거대한 기준국 CAPEX 없이도 중소·중견 지자체와 특수목적 차량(도로관리·통학·효도버스) 시장에서 높은 수익성을 창출할 수 있는 민첩한 구조를 보유하고 있습니다.
+            </div>
+          </div>
+
+          <div class="callout">
+            <strong>[경쟁환경 분석 핵심 시사점 3가지]</strong><br/>
+            1. <strong>‘고아 셸터(Orphaned Shelter)’ 리트로핏 기회 선점:</strong> 시장 구조조정 과정에서 기존 시공사가 이탈·폐업하여 A/S가 단절된 전국 스마트 셸터를 <em>이루텔 Matter 브릿지 + IMS v1.0</em>으로 무중단 승계·정상화하는 역공 영업 전략이 매우 유효합니다.<br/>
+            2. <strong>‘점(RTK 차량) + 면(정류장 셸터)’ 동시 제어 포지셔닝:</strong> 싸인텔레콤이나 카카오맵이 차량 위치 표출에 집중할 때, 이루텔은 차량 측위와 정류장 내부 설비·공기질을 양방향 제어하는 유일한 통합 플랫폼으로 차별화해야 합니다.<br/>
+            3. <strong>차기 법정 인증 확보 필수:</strong> 선두권(이피코리아·새움)의 수의계약 무기에 대응하여 <em>조달청 혁신제품 지정 및 행안부 재난안전제품 인증</em>을 중기 R&amp;D 최우선 과제로 추진해야 합니다.
+          </div>
+
+          <div class="pagination-bar">
+            <button class="btn" onclick="navigateTo('ch2')">← 2장. 사업 영역 및 핵심 역량</button>
+            <button class="btn" onclick="navigateTo('home')">⌂ 홈</button>
+            <button class="btn btn-primary" onclick="navigateTo('ch4')">4장. 서비스 차별화 전략 검토 →</button>
+          </div>
+        </section>
+
+        <!-- ==================== CHAPTER 4 ==================== -->
+        <section id="ch4" class="chapter-page">
+          <div class="chapter-kicker">Chapter 04 · Service Differentiation Strategy</div>
+          <h1 class="chapter-title">서비스 차별화 전략 검토</h1>
+
+          <div class="governing-box">
+            <div class="governing-label">Governing Message</div>
+            <p>
+              기존 스마트 정류장 경쟁이 ‘냉난방·유리 부스 스펙 경쟁’에 매몰되어 있는 가운데, 이루텔은
+              <strong>① C-ITS(차량·인프라 협력 안전)</strong>와 <strong>② Thread/Matter(개방형 IoT 상호운용성 표준)</strong>를 국내 최초로 동시 융합함으로써 게임의 규칙을 바꾸어야 합니다.
+              특히 실외 설비의 내환경성 한계를 고려한 <strong>‘실내 Native QR 교체 vs. 실외 산업용 부품 + Matter 브릿지’ 이원화 전략</strong>은 기술 심사위원과 지자체 공무원을 완벽히 설득하는 결정적 차별화 무기입니다.
+            </p>
+          </div>
+
+          <h2 class="sec-h2">4.1. C-ITS 융합 전략: 차량–정류장 양방향 초연결 안전망 <span class="sec-tag">C-ITS Convergence</span></h2>
+          <div class="card" style="margin-bottom:18px;">
+            <span class="badge badge-green">글로벌 벤치마킹</span>
+            <h3 class="sec-h3" style="margin-top:8px;">싱가포르 육상교통청(LTA) 스마트 버스정류장 및 자율주행 V2X 연계 (+ 오스트리아 C-Roads · 미국 THEA)</h3>
+            <p style="font-size:13.5px;">
+              싱가포르 LTA는 태양광·실시간 도착안내·무료 Wi-Fi·환경센서를 통합한 스마트 정류장을 구축하고, 풍골·주롱 자율주행 실증지구에서 정류장 노변기지국(RSU)과 보행자 감지 센서가 대기 승객 정보를 <strong>V2I·V2P</strong>로 자율주행 버스에 직접 송출하여 정밀 정차와 충돌 예방을 구현했습니다. 오스트리아 빈(C-Roads)의 조건부 대중교통 우선신호(TSP)와 미국 탬파(THEA)의 보행자 충돌 예방 역시 정류장 능동 경보의 안전 ROI를 입증했습니다.
+            </p>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:18%;">구분</th>
+                  <th style="width:41%;">As-Is (기존 일반 스마트 정류장)</th>
+                  <th style="width:41%;">To-Be (이루텔 C-ITS 융합 모델)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>아키텍처 융합 측면</strong></td>
+                  <td>정류장 내부 단방향 표출(센터 → BIT)에 머물며, 도로 위 주행 버스나 교통신호제어기와의 실시간 통신 단절</td>
+                  <td>폴스탑·셸터를 <strong>C-ITS 엣지 노드(V2I/V2P + LTE 하이브리드 브릿지)</strong>로 전환하여 접근 버스 OBU 및 교통신호(SPaT)와 양방향 연동</td>
+                </tr>
+                <tr>
+                  <td><strong>서비스 시나리오 측면</strong></td>
+                  <td>야간·악천후 시 버스 운전자가 대기 승객을 못 보고 무정차 통과, 포트홀·결빙 등 도로 위험 사후 민원 대응</td>
+                  <td>① AI 휠체어·대기자 인식 → 버스 OBU 직접 경보 및 cm급 RTK 정밀 접안, ② 지연 버스 조건부 우선신호(TSP), ③ RTK 도로파손·IRAIR 미세기상 V2X 전파, ④ 자율주행·DRT 가상정류장 앵커</td>
+                </tr>
+                <tr>
+                  <td><strong>핵심 차별화 요인</strong></td>
+                  <td>정류장을 단순 대기 공간(하드웨어)으로만 취급</td>
+                  <td><strong>차량(움직이는 점)과 정류장(고정된 면)을 단일 IMS에서 양방향 통합 제어</strong>하여 교통약자 보호법 준수 및 배상 리스크 원천 절감</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 class="sec-h2">4.2. Thread / Matter(개방형 표준) 융합 전략 <span class="sec-tag">Open Standard IoT</span></h2>
+          <div class="card" style="margin-bottom:18px;">
+            <span class="badge badge-green">글로벌 벤치마킹</span>
+            <h3 class="sec-h3" style="margin-top:8px;">삼성전자 SmartThings Pro (B2B) 및 네덜란드·독일 공공인프라 개방형 표준 조달 원칙</h3>
+            <p style="font-size:13.5px;">
+              삼성전자는 Matter 표준 기반 B2B 플랫폼 <strong>SmartThings Pro</strong>로 타사 공조·조명·센서를 통합 제어하며 상업·공공 공간 운영비(OPEX)를 절감하고 있습니다. 네덜란드 암스테르담과 독일 지자체는 10년 총소유비용(TCO) 최소화를 위해 공공 인프라 발주 시 폐쇄형 프로토콜을 배제하고 <strong>IP 기반 개방형 표준(Open Standard)</strong>을 의무화하고 있습니다. 또한 Matter 1.3~1.6 표준에는 에너지 관리(태양광·요금), 카메라 스트리밍, 전동 개폐장치(Closures), AP 허브(HRAP), 다기관 공동 도메인(Joint Fabric)이 정식 편입되었습니다.
+            </p>
+          </div>
+
+          <div class="grid-3">
+            <div class="card card-top-accent">
+              <div class="kpi-label">서비스 개선 예시 01</div>
+              <h3 class="sec-h3" style="margin-top:4px;">에너지 저감 및 ESG 정량관제</h3>
+              <p style="font-size:13.5px;">AI 재실감지와 Matter 에너지 클러스터를 연동해 빈 정류장의 온열의자·냉난방 대기전력을 자동 차단하고, 정류장별 전력·탄소 감축량(kWh·CO2)을 IMS에서 자동 리포팅합니다.</p>
+            </div>
+            <div class="card card-top-accent">
+              <div class="kpi-label">서비스 개선 예시 02</div>
+              <h3 class="sec-h3" style="margin-top:4px;">무설치 웹·표준 연동 (2계층 보안)</h3>
+              <p style="font-size:13.5px;">Matter의 Fabric 수 제한(5~16개)과 기기 탈취를 막기 위해 시민은 <strong>NFC·공공 Wi-Fi 무설치 웹</strong>으로 승차알림·충전을 요청하고, 이루텔 게이트웨이가 Matter로 대리 제어합니다.</p>
+            </div>
+            <div class="card card-top-accent">
+              <div class="kpi-label">서비스 개선 예시 03</div>
+              <h3 class="sec-h3" style="margin-top:4px;">DAC 기기증명 기반 사이버보안</h3>
+              <p style="font-size:13.5px;">하드웨어 수준 기기 증명 인증서(DAC)로 미인가 단말·전광판 해킹을 차단하고, <strong>Multi-Admin</strong>으로 지자체(마스터)와 유지보수사(점검 한정)의 권한을 안전하게 분리합니다.</p>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:18%;">구분</th>
+                  <th style="width:41%;">As-Is (기존 폐쇄형 스마트 정류장)</th>
+                  <th style="width:41%;">To-Be (이루텔 Matter 표준 융합 모델)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>아키텍처 융합 측면</strong></td>
+                  <td>시공사별 독자 프로토콜(RS-485 등) 종속(Vendor Lock-in) 및 외부 LTE·클라우드 단절 시 자동문·냉난방 전면 마비</td>
+                  <td><strong>이루텔 Matter 브릿지(유선 PoE 기간망 + Thread)</strong>로 구형 설비를 수용하고, 통신 단절 시 현장 로컬 자율 엔진이 0.1초 내 안전 기능 무중단 수행</td>
+                </tr>
+                <tr>
+                  <td><strong>서비스 시나리오 측면</strong></td>
+                  <td>부품 고장 시 최초 시공사만 수리 가능해 고비용·장기 방치, 어린이집 공기질 측정기가 알람만 울리고 공조기 수동 조작</td>
+                  <td>① 고령자·휠체어 무자각(Zero-UI) 조명·바닥유도등·음성 안내, ② 어린이집 IRAIR–기존 가전 폐루프 자동 환기, ③ 시민 QR 고장제보 → Multi-Admin 협력사 신속 처리</td>
+                </tr>
+                <tr>
+                  <td><strong>핵심 차별화 요인 (내환경 이원화)</strong></td>
+                  <td>가정용 IoT 표준을 야외에 무리하게 적용할 경우 한파(-20℃)·진동으로 조기 고장 발생 우려</td>
+                  <td><strong>실내(어린이집·경로당·밀폐 함체)</strong>는 시중 Matter 인증 부품 QR 10분 즉시 교체, <strong>실외 노출 설비</strong>는 IP65 범용 산업용 부품을 Matter 브릿지에 결선 교체(SW 수정 불필요)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 class="sec-h2">4.3. 종합 차별화 포지셔닝 및 조달 영업 소구 전략 <span class="sec-tag">Positioning</span></h2>
+          <div class="callout callout-amber">
+            <strong>[핵심 포지셔닝 선언]</strong><br/>
+            이루텔은 국내 최초로 <strong>‘C-ITS 연동 및 Matter 표준 호환 스마트 정류장(스마트 스크린 셸터·폴스탑·공기질 통합제어)’</strong> 솔루션을 제안하며,
+            삼성·LG 등 대기업이 직접 공략하기 어려운 실외 도로·공공시설 특화 영역에서 <strong>‘B2B2G 특화 Matter 통합관제 플랫폼 기업’</strong>으로 포지셔닝합니다.
+            조달청 제3자 단가계약(IMS v1.0) 영업 시에는 단순 기능 나열이 아니라 <strong>‘개방형 표준 기반 10년 총소유비용(TCO) 절감형 인프라’</strong>로 차별화 소구하여 경쟁사와의 가격 출혈 경쟁을 원천 회피합니다.
+          </div>
+
+          <div class="pagination-bar">
+            <button class="btn" onclick="navigateTo('ch3')">← 3장. 경쟁환경 분석</button>
+            <button class="btn" onclick="navigateTo('home')">⌂ 홈</button>
+            <button class="btn btn-primary" onclick="navigateTo('ch5')">5장. ISP 방안 (BA·IA·TA) →</button>
+          </div>
+        </section>
+
+        <!-- ==================== CHAPTER 5 ==================== -->
+        <section id="ch5" class="chapter-page">
+          <div class="chapter-kicker">Chapter 05 · Information Strategy Planning (ISP)</div>
+          <h1 class="chapter-title">ISP(Information Strategy Planning) 방안</h1>
+
+          <div class="governing-box">
+            <div class="governing-label">Governing Message</div>
+            <p>
+              본 ISP 청사진은 3D 공간 설계에 구현된 현장 인프라와 중앙 관제 시스템을 <strong>전사적 아키텍처(EA: BA·IA·TA)</strong> 관점에서 체계화합니다.
+              특히 지자체 공무원이 가장 우려하는 <strong>① 기존 구형 IoT 장비 매몰 비용</strong>과 <strong>② 공공 사이버 보안·네트워크 안정성</strong>을
+              ‘이루텔 Matter 브릿지 게이트웨이’, ‘2계층 망분리’, ‘멀티-RTK 어댑터’, ‘예산충격 제로 4단계 마이그레이션’으로 완벽히 해소합니다.
+            </p>
+          </div>
+
+          <h2 class="sec-h2">5.1. Business Architecture (BA — 업무 및 거버넌스 아키텍처) <span class="sec-tag">BA</span></h2>
+          <div class="figure-frame">
+            <div class="figure-header">
+              [Figure 5-1] 3대 핵심 업무 프로세스 재설계 (BPR Workflow)
+              <span>Business Architecture</span>
+            </div>
+            <div class="figure-body">
+              <pre class="mermaid">
+flowchart TB
+    subgraph P1 ["업무 1: 무정차 방지 및 교통약자 안전 승차 (C-ITS + Edge)"]
+        A1["교통약자·승객 정류장 접근<br/>(AI 카메라 · 휠체어 버튼 · NFC)"] --> A2["로컬 0.1초 즉각 반응<br/>(LED 점등 · 바닥유도등 · 큰글씨)"]
+        A2 --> A3["C-ITS V2I &amp; RTK 위치 연동<br/>(접근 버스 OBU 직접 경보)"] --> A4["정밀 정차·안전 탑승<br/>(IMS 이력 자동 기록)"]
+    end
+    subgraph P2 ["업무 2: 무인 기후 쉼터 자율 제어 및 에너지 최적화 (Matter Local)"]
+        B1["AI 재실감지 &amp; IRAIR 센싱"] --> B2{"외부 LTE 망<br/>정상 여부?"}
+        B2 -->|Online| B3["IMS 피크전력 분산·절전 제어"]
+        B2 -->|Offline| B4["로컬 자율 엔진 0.1초 무중단 작동<br/>(3중 끼임방지 · 방풍막 · 비상등)"]
+    end
+    subgraph P3 ["업무 3: 민관 협업 유지보수 및 ESG 자동 보고 (Multi-Admin)"]
+        C1["시민 QR 제보 / 설비 이상 알럿"] --> C2["IMS 자동 티켓 생성"]
+        C2 --> C3["협력사 조치 · 표준 부품 교체<br/>(Multi-Admin 위임 권한)"] --> C4["ESG 탄소감축·감사 리포트 출력"]
+    end
+              </pre>
+            </div>
+            <div class="figure-desc">
+              <strong>[도식 해설]</strong> BA는 대중교통과(무정차 해소), 재난안전과(통신 단절 시 무중단 대피 쉼터), 기후대응과(탄소감축 자동 리포팅), 지역 유지보수 협력사(권한 분리 신속 조치) 간의 분절된 업무를 단일 IMS v1.0 멀티테넌트 거버넌스로 통합합니다. 이를 통해 부서 간 예산 공동 매칭(Co-Funding)과 행정 감사 대응력을 동시에 확보합니다.
+            </div>
+          </div>
+
+          <h2 class="sec-h2">5.2. 종단간(End-to-End) 정보 유통 및 응용 아키텍처 (IA) <span class="sec-tag">IA</span></h2>
+          <div class="figure-frame">
+            <div class="figure-header">
+              [Figure 5-2] 표준 데이터 모델 기반 종단간(End-to-End) 정보 유통 아키텍처 (IA Information Flow)
+              <span>Information Architecture</span>
+            </div>
+            <div class="figure-body">
+              <pre class="mermaid">
+flowchart LR
+    subgraph Source ["원천 데이터 계층 (Field &amp; External)"]
+        DS1["폴스탑 · 스크린 셸터 · IRAIR 7-in-1"]
+        DS2["LG U+ 200+ / 국토지리정보원 RTK<br/>&amp; 교통신호(SPaT)"]
+    end
+    subgraph Hub ["정보 허브: 프로토콜 정규화 &amp; API 브로커"]
+        DH1["이루텔 엣지 데이터 정규화 엔진<br/>(RS-485/Modbus → Matter 클러스터 변환)"]
+        DH2["Open API &amp; Webhook 브로커<br/>(NMEA/RTCM · V2X · JSON 표준화)"]
+    end
+    subgraph AppAdmin ["공공 통합관제 응용 (IMS · IROS)"]
+        AA1["IMS v1.0 멀티테넌트 대시보드<br/>(부서별 권한 · ESG 탄소 리포트)"]
+        AA2["IROS 관제 &amp; 유지보수 앱<br/>(원격 리부팅 · Matter OTA · 티켓)"]
+    end
+    subgraph AppCitizen ["시민·현장 표출 응용 (Non-Matter)"]
+        AC1["NFC/공공 Wi-Fi 무설치 모바일 웹<br/>(승차알림 · 충전 · QR 고장제보)"]
+        AC2["정류장 LCD / BIT / LED 전광판<br/>(고대비 안내 · 공기질·탄소 표출)"]
+    end
+    DS1 &amp; DS2 ==> DH1 &amp; DH2
+    DH1 <==>|양방향 표준 데이터| AppAdmin
+    DH2 ==>|실시간 표출 피드| AppCitizen
+    AC1 -->|검증된 HTTPS 제어 요청| DH1
+              </pre>
+            </div>
+            <div class="figure-desc">
+              <strong>[도식 해설]</strong> 현장 설비의 비표준 신호를 <strong>Matter Data Model(설비·공기질·에너지)</strong>, <strong>NMEA/RTCM(초정밀측위)</strong>, <strong>C-ITS V2X(안전 메시지)</strong>라는 3대 국제 표준 포맷으로 정규화합니다. 시민 웹 접점에서 들어오는 요청은 비식별 HTTPS API를 거쳐 검증된 명령만 내부 데이터 허브로 전달되도록 정보 흐름을 통제합니다.
+            </div>
+          </div>
+
+          <h2 class="sec-h2">5.3. Technical Architecture (TA — 기술·인프라 및 보안 아키텍처) <span class="sec-tag">TA</span></h2>
+          <div class="figure-frame">
+            <div class="figure-header">
+              [Figure 5-3] 2계층 망분리 · 멀티-RTK 어댑터 · N2SF/KCMVP 대응 기술 배포 아키텍처
+              <span>Technical &amp; Security Architecture</span>
+            </div>
+            <div class="figure-body">
+              <pre class="mermaid">
+flowchart TB
+    subgraph Public ["비신뢰 영역 (Untrusted Public Zone)"]
+        ZP1["시민 스마트폰 (NFC · QR · 공공 Wi-Fi)"]
+        ZP2["접근 버스 OBU (C-V2X / LTE)"]
+    end
+    subgraph DMZ ["보안 경계 영역 (Security Edge &amp; V2X Gateway)"]
+        ZD1["캡티브 포털 &amp; 웹 보안 게이트웨이<br/>(HTTPS TLS 1.3 · 직접 페어링 원천 차단)"]
+        ZD2["C-ITS RSU &amp; 멀티-RTK 어댑터<br/>(LGU+ · 국토지리정보원 VRS/FKP 다중 수용)"]
+    end
+    subgraph Trusted ["현장 신뢰 영역 (유선 PoE / Thread · DAC 인증)"]
+        ZE1["이루텔 엣지 통합제어기 (Matter Bridge &amp; Controller)<br/>• DAC 기기증명 검증 • 로컬 자율 안전 엔진(0.1초)"]
+        ZE2["실외: 폴스탑 · 스크린 셸터 (-30℃~60℃ / IP65)"]
+        ZE3["실내: 어린이집·경로당 IRAIR ↔ 타사 Matter 가전"]
+    end
+    subgraph Gov ["행정 관제 영역 (Multi-Admin · N2SF/KCMVP SSLVPN)"]
+        ZG1["Fabric 1: 지자체 상황실 (조달 3자단가 IMS v1.0)"]
+        ZG2["Fabric 2: 지역 유지보수 협력사 (점검 권한 한정)"]
+    end
+    ZP1 -->|HTTPS| ZD1
+    ZP2 <-->|V2X| ZD2
+    ZD1 &amp; ZD2 ==> ZE1
+    ZE1 <==>|Matter-over-Ethernet PoE / Thread| ZE2 &amp; ZE3
+    ZE1 <==>|SSLVPN / KCMVP 암호화 터널| ZG1 &amp; ZG2
+              </pre>
+            </div>
+            <div class="figure-desc">
+              <strong>[도식 해설]</strong> 기술 아키텍처는 4가지 공공 핵심 요건을 완벽히 충족합니다. ① <strong>2계층 보안 격리</strong>로 시민 폰의 직접 접속(Fabric 한계·해킹)을 차단하고, ② <strong>유선 PoE(Matter-over-Ethernet)</strong>로 도로변 전파 간섭을 배제하며, ③ <strong>멀티-RTK 마운트포인트 어댑터</strong>로 특정 통신사 종속성을 해소하고, ④ <strong>국가 망 보안체계(N2SF)·KCMVP 암호화·DAC 인증</strong>으로 공공 보안성 검토를 통과할 수 있도록 설계했습니다.
+            </div>
+          </div>
+
+          <h2 class="sec-h2">5.4. ‘이루텔 Matter 브릿지 게이트웨이’ 구형 설비 연동 아키텍처 <span class="sec-tag">Legacy Bridge</span></h2>
+          <div class="figure-frame">
+            <div class="figure-header">
+              [Figure 5-4] 기존 구형 유선 설비(RS-485/Modbus)와 신규 표준 기기 혼용 연동 구조
+              <span>Zero-Replacement Bridge</span>
+            </div>
+            <div class="figure-body">
+              <pre class="mermaid">
+flowchart LR
+    subgraph Legacy ["기존 구축 설비 (Southbound — 구형 유선 보존)"]
+        L1["기존 온열의자 · 전광판<br/>(RS-485 / Modbus RTU)"]
+        L2["기존 전동 방풍막 · 출입문<br/>(건접점 Dry Contact / DI·DO)"]
+        L3["기존 전력량계 · 구형 센서"]
+    end
+    subgraph Bridge ["이루텔 Matter 브릿지 게이트웨이 (방수 함체 내)"]
+        B1["물리 포트 수용부<br/>(기존 배선 무철거 결선)"] --> B2["레지스터 맵 → Matter 객체 변환<br/>(Bridged Device 가상화)"]
+        B1 --> B3["로컬 안전 엔진<br/>(오프라인 0.1초 제어)"]
+    end
+    subgraph Native ["신규 표준 설비 (Zone A 실내 · 밀폐 함체)"]
+        N1["어린이집·경로당 IRAIR &amp; 타사 인증 가전<br/>(QR 스캔 10분 즉시 교체)"]
+    end
+    subgraph Center ["지자체 통합 관제 (Northbound)"]
+        C1["조달청 3자단가 IMS v1.0<br/>(구형·신형 동일 표준 객체로 통합 관리)"]
+    end
+    L1 &amp; L2 &amp; L3 ==>|기존 배선 유지| B1
+    B2 <==>|표준 Matter IP| C1
+    N1 <==>|Native Matter IP| C1
+              </pre>
+            </div>
+            <div class="figure-desc">
+              <strong>[도식 해설]</strong> 지자체가 이미 예산을 들여 설치한 구형 정류장(타사 폐업으로 방치된 스마트 셸터 포함)을 철거하지 않고 기존 RS-485·건접점 배선을 이루텔 Matter 브릿지에 결선하기만 하면, 중앙 관제(IMS v1.0)에서 신형 표준 기기와 완전히 동일하게 인식·제어됩니다. 야외 부품 고장 시에도 시중 범용 산업용 부품으로 단순 결선 교체(SW 수정 불필요)가 가능하여 벤더 록인을 영구 해소합니다.
+            </div>
+          </div>
+
+          <h2 class="sec-h2">5.5. 예산·운영 충격 제로화를 위한 4단계 점진적 마이그레이션 로드맵 <span class="sec-tag">Migration Roadmap</span></h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:19%;">추진 단계</th>
+                  <th style="width:17%;">권장 기간</th>
+                  <th style="width:34%;">현장 구축 및 기술 이행 방식</th>
+                  <th style="width:30%;">지자체 예산·행정 기대효과</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>1단계: 브릿지 통합기</strong><br/>(Zero-Replacement)</td>
+                  <td>1 ~ 2개월</td>
+                  <td>기존 노후 정류장 설비 교체 없이 <strong>이루텔 Matter 브릿지</strong>만 설치하여 조달 3자단가 IMS v1.0 편입</td>
+                  <td>초기 하드웨어 매몰 비용 제로화 및 관내 분산 시설 상태·전력 통합 가시성 즉시 확보</td>
+                </tr>
+                <tr>
+                  <td><strong>2단계: 표준 부품 교체기</strong><br/>(Drop-in Replacement)</td>
+                  <td>3 ~ 6개월</td>
+                  <td>수명 만료·고장 부품부터 순차 교체 (실내·함체는 Matter 인증 QR 교체, 실외는 범용 산업용 부품 결선 교체)</td>
+                  <td>최초 시공사 독점 수리비 구조 타파, 유지보수 단가 인하 및 현장 복구 시간 단축</td>
+                </tr>
+                <tr>
+                  <td><strong>3단계: 네이티브 확산기</strong><br/>(Native Expansion)</td>
+                  <td>6 ~ 12개월</td>
+                  <td>신규 구축되는 폴스탑·스마트 스크린 셸터(C-ITS 연계) 및 국공립 어린이집 IRAIR 공조 폐루프 확산</td>
+                  <td>무정차 방지·교통약자 보호 정량 성과 달성 및 어린이집 실내공기질 자동 방어 완성</td>
+                </tr>
+                <tr>
+                  <td><strong>4단계: 거버넌스 고도화</strong><br/>(Joint Fabric &amp; ESG)</td>
+                  <td>2차년도 ~</td>
+                  <td>Matter 1.4~1.6 Enhanced Multi-Admin/Joint Fabric 기반 다부서·협력사 협업 및 탄소중립 포털 API 연동</td>
+                  <td>야간 당직 출동 해소, 공공 보안 심사 완비 및 국비 공모사업용 ESG 정량 실적 확보</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="pagination-bar">
+            <button class="btn" onclick="navigateTo('ch4')">← 4장. 서비스 차별화 전략</button>
+            <button class="btn" onclick="navigateTo('home')">⌂ 홈</button>
+            <button class="btn btn-primary" onclick="navigateTo('ch6')">6장. 경영 컨설팅 진단(안) →</button>
+          </div>
+        </section>
+
+        <!-- ==================== CHAPTER 6 ==================== -->
+        <section id="ch6" class="chapter-page">
+          <div class="chapter-kicker">Chapter 06 · Management Consulting Diagnosis</div>
+          <h1 class="chapter-title">경영 컨설팅 진단(안)</h1>
+
+          <div class="governing-box">
+            <div class="governing-label">Governing Message</div>
+            <p>
+              이루텔은 기술 포트폴리오의 완성도와 공공조달 진입장벽 측면에서 매출 100억 원대 기업에 버금가는 무기를 이미 확보했습니다.
+              그러나 <strong>임직원 10명·매출 24억 원 규모의 오퍼레이션 병목</strong>과 <strong>B2G 일회성 예산 편중</strong>을 해소하지 않으면
+              수주가 늘수록 수익성이 악화되는 ‘성장 천장(Growth Ceiling)’에 직면하게 됩니다.
+              따라서 <strong>① 포트폴리오 확장(B2B·ODA) → ② 수익모델 고도화(SaaS/조달 스케일업) → ③ 에셋 라이트 조직·인증·자금 레버리지</strong>의 3대 컨설팅 모듈 실행을 제안합니다.
+            </p>
+          </div>
+
+          <h2 class="sec-h2">6.1. 기업 전략 진단: BCG Matrix 및 SWOT 분석 <span class="sec-tag">Portfolio &amp; SWOT</span></h2>
+
+          <div class="figure-frame">
+            <div class="figure-header">
+              [Figure 6-1] 이루텔 사업 포트폴리오 BCG 성장-점유율 매트릭스 진단 (2026)
+              <span>BCG Growth-Share Matrix</span>
+            </div>
+            <div class="figure-body">
+              <svg viewBox="0 0 640 370" style="width:100%;max-width:660px;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="이루텔 BCG 매트릭스">
+                <!-- Quadrant Backgrounds -->
+                <rect x="60" y="20" width="275" height="150" fill="#FFFBEB" stroke="#CBD5E1"/>
+                <rect x="335" y="20" width="275" height="150" fill="#ECFDF5" stroke="#CBD5E1"/>
+                <rect x="60" y="170" width="275" height="150" fill="#F8FAFC" stroke="#CBD5E1"/>
+                <rect x="335" y="170" width="275" height="150" fill="#F0F9FF" stroke="#CBD5E1"/>
+
+                <!-- Quadrant Titles -->
+                <text x="74" y="42" font-size="12" font-weight="800" fill="#B45309">Question Marks (선별 투자·채널 확장)</text>
+                <text x="350" y="42" font-size="12" font-weight="800" fill="#005A43">Stars (핵심 육성·스케일업 주력)</text>
+                <text x="74" y="192" font-size="12" font-weight="800" fill="#64748B">Dogs (효율화·패키지 통합)</text>
+                <text x="350" y="192" font-size="12" font-weight="800" fill="#0369A1">Cash Cows (안정 현금흐름·교차판매)</text>
+
+                <!-- Axes Labels -->
+                <text x="335" y="348" text-anchor="middle" font-size="12" font-weight="700" fill="#334155">상대적 경쟁 우위 / 시장 점유율 (낮음 → 높음)</text>
+                <text x="24" y="170" text-anchor="middle" font-size="12" font-weight="700" fill="#334155" transform="rotate(-90 24 170)">시장 성장률 (낮음 → 높음)</text>
+
+                <!-- Bubbles: Stars -->
+                <circle cx="510" cy="76" r="18" fill="#005A43" fill-opacity="0.85"/>
+                <text x="510" y="106" text-anchor="middle" font-size="11" font-weight="700" fill="#0F172A">지자체·도로관리 RTK</text>
+
+                <circle cx="435" cy="96" r="17" fill="#059669" fill-opacity="0.85"/>
+                <text x="435" y="125" text-anchor="middle" font-size="11" font-weight="700" fill="#0F172A">폴스탑 &amp; IMS v1.0</text>
+
+                <circle cx="545" cy="136" r="13" fill="#10B981" fill-opacity="0.85"/>
+                <text x="545" y="160" text-anchor="middle" font-size="11" font-weight="600" fill="#0F172A">스마트 스크린 셸터</text>
+
+                <!-- Bubbles: Question Marks -->
+                <circle cx="170" cy="78" r="16" fill="#D97706" fill-opacity="0.85"/>
+                <text x="170" y="106" text-anchor="middle" font-size="11" font-weight="700" fill="#0F172A">스마트건설·농기계 RTK / ODA</text>
+
+                <circle cx="240" cy="130" r="13" fill="#F59E0B" fill-opacity="0.85"/>
+                <text x="240" y="154" text-anchor="middle" font-size="11" font-weight="600" fill="#0F172A">IRAIR 다중이용시설 구독</text>
+
+                <!-- Bubbles: Cash Cows -->
+                <circle cx="525" cy="242" r="18" fill="#0284C7" fill-opacity="0.82"/>
+                <text x="525" y="272" text-anchor="middle" font-size="11" font-weight="700" fill="#0F172A">BIS/BIT LTE·P-LTE 망 &amp; IROS</text>
+
+                <circle cx="420" cy="272" r="12" fill="#38BDF8" fill-opacity="0.85"/>
+                <text x="420" y="296" text-anchor="middle" font-size="11" font-weight="600" fill="#0F172A">승객안내기 &amp; 공공 Wi-Fi</text>
+              </svg>
+            </div>
+            <div class="figure-desc">
+              <strong>[도식 해설]</strong> 기존 무선망·IROS(Cash Cow)에서 발생하는 안정적 유지보수 수익과 20여 개 지자체 접점을 지렛대 삼아, 고성장·고마진 영역인 <strong>지자체 RTK·폴스탑·조달 3자단가 IMS(Stars)</strong>의 전국 확산을 가속화하고, <strong>산업용 B2B RTK·IRAIR Matter 구독·해외 ODA(Question Marks)</strong>를 차세대 스타 사업으로 육성하는 포트폴리오 재배치가 필요합니다.
+            </div>
+          </div>
+
+          <div class="swot-grid">
+            <div class="swot-box swot-s">
+              <h4 style="color:#005A43;">S · Strengths (내부 강점)</h4>
+              <ul class="clean-list">
+                <li>제조·시공·개발·R&amp;D 풀스택(Full-Stack) 자체 수행 역량</li>
+                <li>조달청 S/W 3자단가(IMS v1.0), GS 1등급, 환경부 1등급(2종), 특허 3건</li>
+                <li>LG U+ 200+ 기준국 파트너십 및 전국 20+ 지자체 레퍼런스</li>
+              </ul>
+            </div>
+            <div class="swot-box swot-w">
+              <h4 style="color:#475569;">W · Weaknesses (내부 약점)</h4>
+              <ul class="clean-list">
+                <li>임직원 10명·매출 24억 원 규모로 동시다발적 전국 구축·관제 시 병목</li>
+                <li>일회성 하드웨어·SI 구축 매출 비중이 높아 인건비·원자재비에 민감</li>
+                <li>민간 B2B 직판 영업망 및 대형 SOC 단독 입찰 자본력 한계</li>
+              </ul>
+            </div>
+            <div class="swot-box swot-o">
+              <h4 style="color:#0369A1;">O · Opportunities (외부 기회)</h4>
+              <ul class="clean-list">
+                <li>교통약자법 강화 및 스마트 셸터 구조조정(타사 이탈 리트로핏 수요)</li>
+                <li>스마트건설(S-Construction 2030)·정밀농업 cm급 RTK 수요 급증</li>
+                <li>Matter·C-ITS 개방형 표준 확산 및 K-City Network·KOICA IBS 해외 실증</li>
+              </ul>
+            </div>
+            <div class="swot-box swot-t">
+              <h4 style="color:#B45309;">T · Threats (외부 위협)</h4>
+              <ul class="clean-list">
+                <li>대형 공조·보안사(이피코리아·포커스) 및 NET 보유사(새움)의 시장 지배력</li>
+                <li>지자체 세수 감소 및 하반기 편중 발주에 따른 B2G 수주 계절성</li>
+                <li>특정 통신사(LGU+) 기준국 의존 시 타 통신사 선호 입찰 제약 가능성</li>
+              </ul>
+            </div>
+          </div>
+
+          <h2 class="sec-h2">6.2. 성장을 가로막는 3대 핵심 과제 (Strategic Bottlenecks) <span class="sec-tag">3 Key Challenges</span></h2>
+          <div class="grid-3">
+            <div class="card card-top-amber">
+              <div class="kpi-label">CHALLENGE 01</div>
+              <h3 class="sec-h3" style="margin-top:4px;">오퍼레이션 한계 (인력 선형 성장)</h3>
+              <p style="font-size:13.5px;">10명 조직이 영업·R&amp;D·조달 커스터마이징·현장 시공·24시간 유지보수를 모두 직접 수행하는 구조에서는 매출 40~50억 구간에서 납기 지연과 품질 저하 병목이 불가피합니다.</p>
+            </div>
+            <div class="card card-top-amber">
+              <div class="kpi-label">CHALLENGE 02</div>
+              <h3 class="sec-h3" style="margin-top:4px;">B2G 공공예산 편중 및 계절성</h3>
+              <p style="font-size:13.5px;">매출이 지자체 교통과 단년도 예산에 집중되어 있어 상반기 수주 공백 및 지자체별 무리한 커스터마이징 요구로 영업이익률이 잠식될 위험이 상존합니다.</p>
+            </div>
+            <div class="card card-top-amber">
+              <div class="kpi-label">CHALLENGE 03</div>
+              <h3 class="sec-h3" style="margin-top:4px;">현장 인프라·데이터 미수익화</h3>
+              <p style="font-size:13.5px;">정류장 AI 유동인구, RTK 도로 포트홀, IRAIR 미세먼지 등 고가치 도시 데이터를 실시간 수집하면서도 이를 구독형 데이터(DaaS)·인프라 공유(IaaS) 수익으로 연결하지 못하고 있습니다.</p>
+            </div>
+          </div>
+
+          <h2 class="sec-h2">6.3. Next Step 제안: 3대 경영전략 컨설팅 실행 모듈 <span class="sec-tag">Action Modules</span></h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:18%;">추진 모듈</th>
+                  <th style="width:32%;">핵심 전략 과제</th>
+                  <th style="width:50%;">구체적 실행 방안 (Deliverables)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="badge badge-green">모듈 1</span><br/><strong>포트폴리오 재편 및 신시장 확장</strong></td>
+                  <td>B2G 단일 의존 탈피 및 B2G2B·글로벌 ODA 진출</td>
+                  <td>
+                    • <strong>B2G2B 산업 RTK:</strong> 지자체 농기계임대사업소·도로공사 현장 교두보 → 농기계 자동조향 애프터마켓·중소 건설사 구독 번들 확장<br/>
+                    • <strong>글로벌 ODA:</strong> 업력 제한 없는 K-City Network(건당 3~4억 실증) → KOICA IBS → EDCF·ADB 본사업 컨소시엄 합류
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="badge badge-green">모듈 2</span><br/><strong>수익모델 고도화 및 조달 스케일업</strong></td>
+                  <td>일회성(CAPEX) → 반복 구독형(SaaS/ARR) 전환</td>
+                  <td>
+                    • <strong>조달 3자단가 확산:</strong> IMS v1.0 + Matter 브릿지로 타사 이탈 ‘고아 셸터’ 승계 리트로핏 영업 및 부서 간 공동 예산 매칭 플레이북 배포<br/>
+                    • <strong>반복 매출 구조화:</strong> 어린이집 IRAIR-Matter 공조 구독, 농어촌 태양광 폴스탑 월정액 IaaS, 도로·커브 위험 데이터 DaaS 상품화
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="badge badge-green">모듈 3</span><br/><strong>조직·R&amp;D 거버넌스 및 성장 자금</strong></td>
+                  <td>에셋 라이트(Asset-Light) 조직 혁신 및 인증·금융 레버리지</td>
+                  <td>
+                    • <strong>Fabless 실행 체계:</strong> 본사는 AI·RTK·Matter 플랫폼 설계에 집중, 양산(OEM)·현장 시공/1차 A/S는 권역별 협력사에 위임(Multi-Admin 권한 분리)<br/>
+                    • <strong>차기 인증·자금:</strong> Matter·C-ITS 융합 시스템의 <em>조달청 혁신제품·행안부 재난안전제품 인증</em> 추진 및 리스 금융·기보 정책자금 연계 유동화
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="pagination-bar">
+            <button class="btn" onclick="navigateTo('ch5')">← 5장. ISP 방안</button>
+            <button class="btn" onclick="navigateTo('home')">⌂ 홈</button>
+            <button class="btn btn-primary" onclick="navigateTo('ch7')">7장. 중장기 비전 및 확장 BM 8선 →</button>
+          </div>
+        </section>
+
+        <!-- ==================== CHAPTER 7 ==================== -->
+        <section id="ch7" class="chapter-page">
+          <div class="chapter-kicker">Chapter 07 · Mid-to-Long-Term Vision &amp; 8 Business Models</div>
+          <h1 class="chapter-title">중장기 비전 아키텍처 및 미래 확장 사업 모델</h1>
+
+          <div class="governing-box">
+            <div class="governing-label">Mid-to-Long-Term Vision Statement</div>
+            <p>
+              <strong>“AI·초정밀측위 기반 글로벌 스마트 모빌리티 및 안전 도시 인프라 플랫폼 선도기업<br/>
+              (Global AI-RTK Smart Mobility &amp; Safe City Infrastructure Platform Leader)”</strong><br/>
+              국내 B2G 스마트 도시 인프라의 ESG·재정 자립형 혁신(BM 1~6)을 기반으로, 국내 산업 B2G2B(스마트건설·정밀농업 RTK, BM 7)와 개발도상국 ODA 패키지 수출(BM 8)로 이어지는 <strong>8대 지속가능 확장 비즈니스 모델</strong>을 통해 매출 100억 원대 플랫폼 기업으로 도약합니다.
+            </p>
+          </div>
+
+          <h2 class="sec-h2">7.1. 3-Horizon 중장기 성장 비전 아키텍처 <span class="sec-tag">3-Horizon Roadmap</span></h2>
+          <div class="figure-frame">
+            <div class="figure-header">
+              [Figure 7-1] 3-Horizon (1~5년차) 단계별 성장 지평 및 가치 순환 구조 (Value Flywheel)
+              <span>Strategic Growth Horizon</span>
+            </div>
+            <div class="figure-body">
+              <pre class="mermaid">
+flowchart LR
+    subgraph H1 ["Horizon 1: 조달 스케일업 &amp; 즉시 상용화 (1~2년차)"]
+        H1A["조달 3자단가(IMS) · 고아 셸터 리트로핏<br/>BM 6: 어린이집·경로당 Matter-ESG SaaS<br/>BM 5: 농어촌 오프그리드 태양광 폴스탑"]
+        H1B["BM 8-1: K-City Network 해외실증 착수<br/>(비희석 공공자금 3~4억 활용)"]
+    end
+    subgraph H2 ["Horizon 2: B2G2B 산업 확장 &amp; 인프라 공유 (2~3년차)"]
+        H2A["BM 7: 스마트건설 MG/MC · 농기계 RTK 구독<br/>BM 3: AI·RTK 스마트 커브 및 DaaS API<br/>BM 2: 5G 멀티테넌트 스마트폴 셰어링"]
+    end
+    subgraph H3 ["Horizon 3: 대형 PPP 자립화 &amp; 글로벌 ODA 확산 (3~5년차)"]
+        H3A["BM 1: Zero-CAPEX 에코 셸터 PPP·ESG 스폰서<br/>BM 4: K-Mobility Hub PM·DRT·물류 수수료<br/>BM 8-2: KOICA IBS · EDCF/ADB 개도국 본사업"]
+    end
+    H1 ==>|국내 실적 · 현지 PoC 레퍼런스| H2 ==>|도시 엣지 밀도 · 구독 ARR 축적| H3
+    H3 -.->|재무 여력 · 글로벌 브랜드로 수주 가속| H1
+              </pre>
+            </div>
+            <div class="figure-desc">
+              <strong>[도식 해설]</strong> 임직원 10명 규모의 강소기업이 재무 리스크 없이 스케일업하기 위해, 1~2년차에는 기존 보유 자산(IRAIR·폴스탑·IMS 3자단가)으로 즉각 매출이 발생하는 BM 5·6과 정부 실증 자금(K-City Network)을 선점합니다. 이후 축적된 레퍼런스와 구독 현금흐름을 바탕으로 2~3년차 B2G2B 산업 RTK(BM 7)·데이터 API(BM 3)로 확장하고, 3~5년차에 대형 PPP(BM 1)와 글로벌 ODA 본사업(BM 8)으로 도약하는 선순환 플라이휠입니다.
+            </div>
+          </div>
+
+          <h2 class="sec-h2">7.2. 국내 ESG·지속가능 B2G 확장 비즈니스 모델 6선 (BM 1 ~ 6) <span class="sec-tag">Domestic B2G Models</span></h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:18%;">확장 BM 명칭</th>
+                  <th style="width:17%;">글로벌 벤치마킹</th>
+                  <th style="width:33%;">비즈니스 모델 및 수익 구조 (To-Be)</th>
+                  <th style="width:32%;">시민·지자체 고객가치 및 ESG 성과</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>BM 1. Zero-CAPEX 에코 셸터 PPP</strong></td>
+                  <td>네덜란드 위트레흐트 (0유로 녹화 셸터) · 프랑스 JCDecaux</td>
+                  <td>광고·ESG 파트너 선투자로 태양광·IRAIR 셸터 구축 → DOOH 광고 + 기업 ESG 네이밍 스폰서십 + IMS 유지관리비 수익 공유</td>
+                  <td>지자체 초기 예산 50~100% 절감 및 균형 보급, 태양광·AI 절전 탄소감축(E) + 폭염·한파 취약계층 보호(S)</td>
+                </tr>
+                <tr>
+                  <td><strong>BM 2. 멀티테넌트 스마트폴 셰어링</strong></td>
+                  <td>미국 뉴욕 LinkNYC / Link5G · 일본 도쿄 5G 스마트폴</td>
+                  <td>폴스탑 상단 다중 통신사 5G 스몰셀·RSU 공용 임대료(IaaS) + 하단 공공 Wi-Fi 캡티브 포털 내 지역 소상공인 로컬 광고</td>
+                  <td>지자체 세외수입 창출 및 도시 미관 개선, 무료 Wi-Fi·충전·112/119 비상호출 및 골목상권 상생(S·G)</td>
+                </tr>
+                <tr>
+                  <td><strong>BM 3. AI·RTK 스마트 커브 &amp; DaaS</strong></td>
+                  <td>미국·유럽 100+ 도시 Populus AI Curb Manager</td>
+                  <td>폴스탑 AI(불법주정차·비식별 유동인구) + RTK 도로파손 데이터를 지자체 SaaS 및 내비·물류·보험사 API 구독(DaaS)으로 판매</td>
+                  <td>차도 승하차 낙상 25%↓, 공회전·불법주정차 해소(E), 예방적 도로 보수로 영조물 배상 리스크 급감(G)</td>
+                </tr>
+                <tr>
+                  <td><strong>BM 4. K-Mobility Hub 환승·물류 허브</strong></td>
+                  <td>독일 베를린 BVG Jelbi (340+ 환승 허브)</td>
+                  <td>정류장 인접 공간에 공유 PM 전용 충전·거치대 + DRT 가상정류장 + 무인 픽업함 통합 → Matter 전력 과금·임대·픽업 수수료</td>
+                  <td>인도 방치 킥보드 민원 해소, 대중교통–PM–생활물류 15분 생활권 편의 및 수송 탄소 저감(E·S)</td>
+                </tr>
+                <tr>
+                  <td><strong>BM 5. 농어촌 오프그리드 태양광·ePaper</strong></td>
+                  <td>싱가포르 LTA 태양광 컬러 ePaper 정류장</td>
+                  <td>무전력망·무굴착 태양광 + 컬러 ePaper + 저전력 AI 폴스탑 올인원 패키지를 기초지자체에 월정액 구독(IaaS) 공급</td>
+                  <td>한전 인입·굴착비 100% 절감으로 외곽 보급 3~5배 확대, 100% Net-Zero(E) 및 농어촌 이동권 포용(S)</td>
+                </tr>
+                <tr class="tr-highlight">
+                  <td><strong>BM 6. 다중이용시설 Matter-ESG 구독</strong><br/><span class="badge badge-green">단기 최우선</span></td>
+                  <td>스페인 바르셀로나 Sentilo · 삼성 SmartThings Pro</td>
+                  <td>어린이집·경로당·도서관에 환경부 1등급 IRAIR+Matter 컨트롤러 보급 → 기존 타사 가전 폐루프 자동 제어 및 안부 돌봄 월정액 SaaS</td>
+                  <td>기존 가전 100% 재활용으로 예산 극소화, 영유아 호흡기·독거어르신 고독사 예방(S) 및 법정 공기질 자동 보고(G)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 class="sec-h2">7.3. B2B(B2G2B) 및 해외 ODA 신사업 확장 전략 (BM 7 ~ 8) <span class="sec-tag">B2B &amp; Global ODA</span></h2>
+          <div class="grid-2">
+            <div class="card card-top-accent">
+              <span class="badge badge-green">BM 7 · B2G2B 산업 확장</span>
+              <h3 class="sec-h3" style="margin-top:8px;">스마트건설 및 정밀농업(자율주행 농기계) RTK 구독</h3>
+              <p style="font-size:13.5px;margin-bottom:10px;"><strong>벤치마킹:</strong> 일본 고마츠(K-RTK) · 미국 존디어(StarFire RTK 구독)</p>
+              <ul class="clean-list">
+                <li><strong>스마트건설 트랙 (Smart-Site RTK Pack):</strong> 국토부 S-Construction 2030 대응. 지자체 도로공사·중소 시공사에 외산 대비 합리적인 듀얼 RTK 단말 + 3D 작업면 모니터링 + 비산먼지(IRAIR)·충돌방지 안전관제를 월정액 구독 공급.</li>
+                <li><strong>정밀농업 트랙 (Agri-RTK Link):</strong> 2030년 2,102억 원 전망 자율주행 농기계 시장 겨냥. 지자체 농기계임대사업소 및 애프터마켓 자동조향 제조사에 LG U+ 200+ 기준국 연동 cm급 단말·원격진단(IROS) 번들 공급.</li>
+                <li><strong>ESG 가치:</strong> 중복 작업·연료·농약·비산먼지 감축(E), 농촌 고령화 노동력 보완 및 건설 중대재해 예방(S).</li>
+              </ul>
+            </div>
+            <div class="card card-top-amber">
+              <span class="badge badge-amber">BM 8 · Global ODA 수출</span>
+              <h3 class="sec-h3" style="margin-top:8px;">개발도상국 맞춤형 스마트 모빌리티 ODA 패키지 수출</h3>
+              <p style="font-size:13.5px;margin-bottom:10px;"><strong>벤치마킹:</strong> 국토부·KIND K-City Network(29개국 61건) · ADB/World Bank ITS</p>
+              <ul class="clean-list">
+                <li><strong>현지화 패키지 (K-Smart Transit Safety Kit):</strong> 한파 온열의자 대신 <em>태양광 하이브리드 전원 + 폭염·우천 차양 + 열대형 폴스탑 + 독립형 소형 로컬 RTK 기준국</em>(현지 통신사 기준국 부재 극복) + IMS/IROS 원격 O&amp;M(장비 이탈 경보·현지 파트너 SLA) 결합.</li>
+                <li><strong>업력 맞춤 3단계 재원 조달:</strong> 업력 10년 초과(2013 법인)로 불가한 KOICA CTS 대신, <strong>① K-City Network 해외실증형(3~4억) → ② KOICA IBS(중소기업 포용적 비즈니스) → ③ EDCF·ADB 본사업 컨소시엄</strong> 순차 진입.</li>
+                <li><strong>ESG 가치:</strong> 개도국 교통 대기오염 감축(UN SDG 13·E) 및 여성·아동·교통약자 안전 이동권 보장(UN SDG 11·S).</li>
+              </ul>
+            </div>
+          </div>
+
+          <h2 class="sec-h2">7.4. 8대 확장 BM 실행 우선순위 및 리스크 방어 요약 <span class="sec-tag">Execution Priority</span></h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>추진 시기</th>
+                  <th>우선 실행 비즈니스 모델</th>
+                  <th>핵심 수익원</th>
+                  <th>핵심 리스크 및 대안 방어 전략 (Agentic Mitigation)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="tr-highlight">
+                  <td><strong>1단계 (0~12개월)</strong><br/>즉시 상용화</td>
+                  <td><strong>BM 6</strong> (어린이집·경로당 Matter-ESG)<br/><strong>BM 5</strong> (농어촌 오프그리드 폴스탑)<br/><strong>BM 8-1</strong> (K-City Network 해외실증)</td>
+                  <td>조달 3자단가 + 월정액 SaaS/IaaS + 비희석 공공 실증 자금(3~4억)</td>
+                  <td><strong>10명 인력·자금 병목 방어:</strong> 리스/기보 금융 유동화로 초기 제작비 선회수, 현장 설치·1차 A/S는 지역 협력사 위임(Asset-Light)</td>
+                </tr>
+                <tr>
+                  <td><strong>2단계 (6~24개월)</strong><br/>산업·데이터 확장</td>
+                  <td><strong>BM 7</strong> (스마트건설·농기계 RTK)<br/><strong>BM 3</strong> (스마트 커브·도로위험 DaaS)<br/><strong>BM 2</strong> (5G 멀티테넌트 스마트폴)</td>
+                  <td>장비당 월/연간 RTK 구독 + API 데이터 판매 + 통신사 공간 임대</td>
+                  <td><strong>프라이버시·채널 장벽 방어:</strong> On-Device AI 즉시 비식별 처리(원본 영상 파기), 공공 임대사업소 선점 후 애프터마켓 B2B 번들 제휴</td>
+                </tr>
+                <tr>
+                  <td><strong>3단계 (18~36개월)</strong><br/>대형 자립·글로벌</td>
+                  <td><strong>BM 1</strong> (Zero-CAPEX 에코 셸터 PPP)<br/><strong>BM 4</strong> (K-Mobility Hub 환승·물류)<br/><strong>BM 8-2</strong> (KOICA IBS · EDCF 본사업)</td>
+                  <td>DOOH 광고·ESG 스폰서십 + PM/물류 수수료 + 개도국 차관 본사업</td>
+                  <td><strong>광고 규제·해외 인프라 방어:</strong> 규제샌드박스·기존 옥외광고 수탁사 컨소시엄 및 기업 ESG 기부채납 우회, 독립형 로컬 RTK 기준국 탑재</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout">
+            <strong>[대표이사 결재 및 착수 제언 (Closing Call-to-Action)]</strong><br/>
+            본 컨설팅 초안을 바탕으로 <strong>① 내부 경영진 킥오프 워크숍(우선 추진 모듈 1~2개 확정)</strong>을 진행하고,
+            단기 성과 창출이 가장 확실한 <strong>‘안양·군포 인접 지자체 대상 Matter 브릿지·어린이집 IRAIR 시범 제안(조달 3자단가)’</strong>과
+            <strong>‘2027년 상반기 K-City Network 해외실증형 공모 컨셉페이퍼 착수’</strong>를 동시에 가동할 것을 권고드립니다.
+          </div>
+
+          <div class="pagination-bar">
+            <button class="btn" onclick="navigateTo('ch6')">← 6장. 경영 컨설팅 진단(안)</button>
+            <button class="btn btn-primary" onclick="navigateTo('home')">⌂ 처음(Executive Summary)으로 돌아가기</button>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Interactive Diagram Zoom & Pan Modal (<dialog>) -->
+  <dialog id="diagramLightbox" class="diagram-lightbox" closedby="any" aria-labelledby="lightboxTitle">
+    <div class="lightbox-header">
+      <div class="lightbox-heading-wrap">
+        <h1 id="lightboxTitle" class="lightbox-title">다이어그램 상세 보기</h1>
+      </div>
+      <div class="lightbox-toolbar" role="toolbar" aria-label="다이어그램 확대 및 이동 제어">
+        <button type="button" class="lb-btn" id="lbZoomOut" aria-label="축소">－</button>
+        <button type="button" class="lb-btn lb-zoom-readout" id="lbZoomReset" aria-label="화면 맞춤으로 초기화">100%</button>
+        <button type="button" class="lb-btn" id="lbZoomIn" aria-label="확대">＋</button>
+        <button type="button" class="lb-btn" id="lbZoomActual" aria-label="원본 크기 보기">원본</button>
+        <button type="button" class="lb-btn" id="lbToggleDesc" aria-expanded="false" aria-controls="lbCaptionPanel">해설</button>
+        <button type="button" class="lb-btn lb-btn-close" id="lbCloseBtn" aria-label="확대 뷰어 닫기" autofocus>✕ 닫기</button>
+      </div>
+    </div>
+    <div class="lightbox-stage" id="lbStage">
+      <div class="lightbox-canvas" id="lbCanvas"></div>
+    </div>
+    <div class="lightbox-caption-panel" id="lbCaptionPanel" hidden></div>
+    <div class="lightbox-footer-hint" id="lbFooterHint">
+      두 손가락 핀치 확대/축소 · 드래그 이동 · 더블탭(더블클릭) 확대 · 배경 탭 또는 ESC로 닫기
+    </div>
+  </dialog>
+
+  <script>
+    // 1. Mermaid Configuration (Manual render on active tab to prevent zero-width SVG bugs)
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'base',
+      securityLevel: 'loose',
+      fontFamily: 'Pretendard, sans-serif',
+      themeVariables: {
+        primaryColor: '#ECFDF5',
+        primaryTextColor: '#0F172A',
+        primaryBorderColor: '#005A43',
+        lineColor: '#475569',
+        secondaryColor: '#F8FAFC',
+        tertiaryColor: '#FEF3C7',
+        fontSize: '14px'
+      },
+      flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis', nodeSpacing: 44, rankSpacing: 52 }
+    });
+
+    const pagesOrder = ['home', 'ch1', 'ch2', 'ch3', 'ch4', 'ch5', 'ch6', 'ch7'];
+
+    async function renderMermaidIn(container) {
+      const nodes = Array.from(container.querySelectorAll('pre.mermaid:not([data-processed="true"])'));
+      if (nodes.length > 0) {
+        try {
+          await mermaid.run({ nodes });
+        } catch (err) {
+          console.error('Mermaid render warning:', err);
+        }
+      }
+    }
+
+    // 2. SPA Paging & Navigation
+    async function navigateTo(targetId) {
+      if (document.body.classList.contains('print-all')) {
+        togglePrintAll(false);
+      }
+
+      document.querySelectorAll('.chapter-page').forEach(sec => sec.classList.remove('active'));
+      const activeSec = document.getElementById(targetId) || document.getElementById('home');
+      activeSec.classList.add('active');
+
+      document.querySelectorAll('.nav-item button').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.target === targetId);
+      });
+
+      const idx = Math.max(0, pagesOrder.indexOf(targetId));
+      const pct = ((idx + 1) / pagesOrder.length) * 100;
+      document.getElementById('progressFill').style.width = pct + '%';
+
+      // Close mobile sidebar if open
+      document.getElementById('sidebar').classList.remove('open');
+
+      // Update hash & scroll to top
+      if (history.replaceState) {
+        history.replaceState(null, '', '#' + targetId);
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Lazy-render Mermaid diagrams inside active page
+      await renderMermaidIn(activeSec);
+    }
+
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+    }
+
+    async function togglePrintAll(forceState) {
+      const btn = document.getElementById('printModeBtn');
+      const enable = typeof forceState === 'boolean' ? forceState : !document.body.classList.contains('print-all');
+      document.body.classList.toggle('print-all', enable);
+      if (enable) {
+        btn.textContent = '단원별 보기 복귀';
+        await renderMermaidIn(document.body);
+        setTimeout(() => window.print(), 350);
+      } else {
+        btn.textContent = '전체 보기 / 인쇄';
+      }
+    }
+
+    // 3. Interactive South Korea Regional Footprint Data (Chapter 1)
+    const regionData = {
+      metro: {
+        title: '수도권 핵심 거점 (본사 안양 및 인접 클러스터)',
+        badge: '최다 구축 권역',
+        items: [
+          '<strong>군포시:</strong> 스마트 버스정류장·한파저감 스크린 셸터 25개소(2025.03), 실내외 공기질 상시측정(IRAIR), 마을버스 승객안내기·공공 Wi-Fi, 신호제어 모뎀·염수분사기 무선망',
+          '<strong>서울시 · 서초구:</strong> 서울시 BIT LTE 무선망(2018), 지하철 키오스크·따릉이 1세대 스테이션 LTE망(2015), 서초구 영유아 통학버스·효도버스 초정밀측위(RTK, 2025.05)',
+          '<strong>용인시 · 시흥시:</strong> 도로관리 시스템 초정밀측위(RTK) 구축(2025.06·12), 시흥시 BIT LTE 무선망(2016)',
+          '<strong>안양 · 광명 · 성남 · 하남 · 의왕 · 양주:</strong> 안양 신사옥 이전(2026.04), 광명시청 BIT LTE 공급(2014), 의왕시 공기질 모니터링 및 수도권 지자체 무선망·관제(IROS) 다수 구축'
+        ]
+      },
+      chungcheong: {
+        title: '충청권 거점 (RTK BIS 고도화 확산 축)',
+        badge: 'RTK 고도화 주력',
+        items: [
+          '<strong>공주시:</strong> BIS 초정밀버스정보 사업 초정밀측위(RTK) 구축(2025.03)',
+          '<strong>충주시:</strong> 버스정보시스템(BIS) 고도화 사업 초정밀측위(RTK) 구축(2025.09)',
+          '<strong>청주 · 증평 · 진천:</strong> 충북권 지자체 파트너십 및 교통 인프라 통신·관제 연계 거점'
+        ]
+      },
+      gyeongbuk: {
+        title: '대구·경북권 거점 (P-LTE 폐쇄망 및 ITS 선도)',
+        badge: 'P-LTE · BIS 실적',
+        items: [
+          '<strong>대구광역시:</strong> BIT 기업전용 무선망(P-LTE) 구축(2017.08) — 공용망 분리 보안 레퍼런스',
+          '<strong>경산시:</strong> 버스정보시스템(BIS) 고도화 사업 초정밀측위(RTK) 구축(2025.11)',
+          '<strong>경주시 · 포항시:</strong> 경주 지능형교통체계(ITS) LTE·VPN(2020) 및 고성능 공공 Wi-Fi(2018), 포항시 BIT LTE(2017)',
+          '<strong>안동 · 예천:</strong> OBE/BIT 기업전용 P-LTE 무선망 구축(2019.10)'
+        ]
+      },
+      honam: {
+        title: '호남권 거점 (교육청 통학안전 · RTK 확장)',
+        badge: '교육·복지 RTK',
+        items: [
+          '<strong>전북특별자치도교육청:</strong> 통학차량 관제시스템 운영 GNSS 초정밀측위(RTK) 구축 사업 수행(2024.02)',
+          '<strong>군산시:</strong> 현장 초정밀측위(RTK) 구축 및 운영 레퍼런스 확보',
+          '<strong>광양시:</strong> 전남권 지자체 파트너십 및 스마트 교통 인프라 연계 거점'
+        ]
+      },
+      gangwon: {
+        title: '강원권 거점 (ITS 도로교통 · RTK 확장)',
+        badge: 'VMS/VDS · RTK',
+        items: [
+          '<strong>원주시 · 횡성군:</strong> 원주시 VMS/VDS/PIS 도로교통 무선망(LTE) 및 SSLVPN 구축(2019.12), IROS 통합관제 90% 커버리지',
+          '<strong>동해시:</strong> 지자체 초정밀측위(RTK) 현장 구축 레퍼런스 확보',
+          '<strong>전국 기관 (공통):</strong> 기상청 관제시스템 LTE 무선망(2017.09), 한국농어촌공사 농업용수 자동화 LTE망(2020.02)'
+        ]
+      }
+    };
+
+    function selectRegion(key) {
+      const data = regionData[key];
+      if (!data) return;
+
+      document.querySelectorAll('.region-tab').forEach(t => t.classList.toggle('active', t.dataset.region === key));
+      document.querySelectorAll('.map-pin').forEach(p => p.classList.toggle('active', p.dataset.region === key));
+
+      const html = `
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:8px;flex-wrap:wrap;">
+          <h4 style="font-size:15px;font-weight:800;color:#0F172A;">${data.title}</h4>
+          <span class="badge badge-green">${data.badge}</span>
+        </div>
+        <ul class="clean-list" style="margin:0;">
+          ${data.items.map(item => `<li>${item}</li>`).join('')}
+        </ul>
+      `;
+      document.getElementById('regionContent').innerHTML = html;
+    }
+
+    // 4. Interactive Diagram Zoom & Pan Lightbox (<dialog>)
+    const DiagramViewer = (() => {
+      const dialog = document.getElementById('diagramLightbox');
+      const titleEl = document.getElementById('lightboxTitle');
+      const stage = document.getElementById('lbStage');
+      const canvas = document.getElementById('lbCanvas');
+      const zoomReadout = document.getElementById('lbZoomReset');
+      const zoomOutBtn = document.getElementById('lbZoomOut');
+      const zoomInBtn = document.getElementById('lbZoomIn');
+      const zoomActualBtn = document.getElementById('lbZoomActual');
+      const toggleDescBtn = document.getElementById('lbToggleDesc');
+      const captionPanel = document.getElementById('lbCaptionPanel');
+      const closeBtn = document.getElementById('lbCloseBtn');
+
+      let supportsDisplayTransition;
+      function canTransitionDisplay() {
+        if (supportsDisplayTransition !== undefined) return supportsDisplayTransition;
+        if (!window.CSS?.supports?.('transition-behavior', 'allow-discrete') || !document.body) {
+          return false;
+        }
+        const probe = document.createElement('div');
+        probe.style.cssText = 'transition: display 1s allow-discrete !important; display: block;';
+        document.body.appendChild(probe);
+        getComputedStyle(probe).display;
+        probe.style.display = 'none';
+        supportsDisplayTransition = getComputedStyle(probe).display === 'block';
+        probe.remove();
+        return supportsDisplayTransition;
+      }
+
+      function supportsTopLayerExit() {
+        return window.CSS?.supports?.('overlay', 'auto') && canTransitionDisplay();
+      }
+
+      async function closeTopLayer(el) {
+        if (!el.open) return;
+        if (!supportsTopLayerExit()) {
+          el.setAttribute('data-closing', '');
+          const animations = el.getAnimations({ subtree: true });
+          if (animations.length > 0) {
+            await Promise.race([
+              Promise.allSettled(animations.map((a) => a.finished)),
+              new Promise((r) => setTimeout(r, 400)),
+            ]);
+          }
+          if (!el.hasAttribute('data-closing')) return;
+          el.removeAttribute('data-closing');
+        }
+        el.close();
+      }
+
+      // Light-dismiss fallback for browsers without <dialog closedby="any"> (e.g. Safari)
+      if (dialog && !('closedBy' in HTMLDialogElement.prototype)) {
+        const outside = (e) => {
+          const r = dialog.getBoundingClientRect();
+          return e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom;
+        };
+        let pressedOutside = false;
+        dialog.addEventListener('pointerdown', (e) => { pressedOutside = outside(e); });
+        dialog.addEventListener('pointerup', (e) => {
+          if (pressedOutside && outside(e)) closeTopLayer(dialog);
+        });
+      }
+
+      const state = {
+        contentW: 800,
+        contentH: 600,
+        fitScale: 1,
+        minScale: 0.2,
+        maxScale: 5,
+        scale: 1,
+        tx: 0,
+        ty: 0,
+        isImage: false,
+        pointers: new Map(),
+        lastPan: null,
+        lastPinchDist: 0,
+        lastPinchMid: null,
+        lastTapTime: 0,
+        lastTapPos: null,
+        movedSinceDown: false,
+      };
+
+      function updateReadout() {
+        const pct = Math.max(10, Math.round((state.scale / state.fitScale) * 100));
+        zoomReadout.textContent = pct + '%';
+      }
+
+      function clampPan() {
+        const sw = stage.clientWidth;
+        const sh = stage.clientHeight;
+        const cw = state.contentW * state.scale;
+        const ch = state.contentH * state.scale;
+        const margin = Math.min(64, Math.min(sw, sh) * 0.12);
+
+        if (cw <= sw) {
+          state.tx = (sw - cw) / 2;
+        } else {
+          state.tx = Math.min(margin, Math.max(sw - cw - margin, state.tx));
+        }
+
+        if (ch <= sh) {
+          state.ty = (sh - ch) / 2;
+        } else {
+          state.ty = Math.min(margin, Math.max(sh - ch - margin, state.ty));
+        }
+      }
+
+      function applyTransform() {
+        canvas.style.transform = `translate3d(${state.tx.toFixed(2)}px, ${state.ty.toFixed(2)}px, 0) scale(${state.scale.toFixed(4)})`;
+        updateReadout();
+      }
+
+      function computeFit(preserveZoom = false) {
+        const sw = stage.clientWidth;
+        const sh = stage.clientHeight;
+        if (!sw || !sh || !state.contentW || !state.contentH) return;
+
+        const pad = sw < 680 ? 16 : 36;
+        const fit = Math.min((sw - pad) / state.contentW, (sh - pad) / state.contentH);
+        const prevFit = state.fitScale || fit;
+        state.fitScale = Math.max(0.08, fit);
+        state.minScale = Math.min(state.fitScale * 0.75, 0.25);
+        state.maxScale = Math.max(state.fitScale * 6, 4.5);
+
+        if (!preserveZoom || Math.abs(state.scale - prevFit) < 0.05) {
+          state.scale = state.fitScale;
+          state.tx = (sw - state.contentW * state.scale) / 2;
+          state.ty = (sh - state.contentH * state.scale) / 2;
+        } else {
+          state.scale = Math.min(state.maxScale, Math.max(state.minScale, state.scale));
+          clampPan();
+        }
+        applyTransform();
+      }
+
+      function zoomAt(targetScale, px, py) {
+        const nextScale = Math.min(state.maxScale, Math.max(state.minScale, targetScale));
+        const cx = (px - state.tx) / state.scale;
+        const cy = (py - state.ty) / state.scale;
+        state.scale = nextScale;
+        state.tx = px - cx * nextScale;
+        state.ty = py - cy * nextScale;
+        clampPan();
+        applyTransform();
+      }
+
+      function zoomCenter(factor) {
+        const px = stage.clientWidth / 2;
+        const py = stage.clientHeight / 2;
+        zoomAt(state.scale * factor, px, py);
+      }
+
+      function resetFit() {
+        computeFit(false);
+      }
+
+      function zoomActual() {
+        const px = stage.clientWidth / 2;
+        const py = stage.clientHeight / 2;
+        const target = state.isImage
+          ? Math.max(1, state.fitScale * 1.8)
+          : (state.scale < state.fitScale * 1.5 ? Math.min(state.maxScale, state.fitScale * 2.1) : state.fitScale);
+        zoomAt(target, px, py);
+      }
+
+      function cloneSvgCrisp(svgEl) {
+        const vb = svgEl.viewBox?.baseVal;
+        const rect = svgEl.getBoundingClientRect();
+        const rawW = (vb && vb.width > 0) ? vb.width : (rect.width || 800);
+        const rawH = (vb && vb.height > 0) ? vb.height : (rect.height || 500);
+
+        const clone = svgEl.cloneNode(true);
+        if (svgEl.id) {
+          const oldId = svgEl.id;
+          const newId = `${oldId}-lb-${Date.now().toString(36)}`;
+          clone.id = newId;
+          clone.innerHTML = clone.innerHTML.split(oldId).join(newId);
+        }
+
+        // Normalize SVG layout size >= 1200px wide so browser raster caches stay sharp at high zoom
+        const upscale = rawW < 1200 ? (1200 / rawW) : 1;
+        const normW = Math.round(rawW * upscale);
+        const normH = Math.round(rawH * upscale);
+        clone.setAttribute('width', String(normW));
+        clone.setAttribute('height', String(normH));
+        clone.removeAttribute('style');
+        if (!clone.getAttribute('viewBox')) {
+          clone.setAttribute('viewBox', `0 0 ${rawW} ${rawH}`);
+        }
+        return { node: clone, w: normW, h: normH };
+      }
+
+      async function openFrame(frame) {
+        const body = frame.querySelector('.figure-body');
+        if (!body) return;
+
+        // Ensure Mermaid inside this frame is rendered if not already
+        await renderMermaidIn(frame);
+
+        const img = body.querySelector('img');
+        const svg = body.querySelector('svg');
+        if (img && (!img.complete || img.naturalWidth === 0)) return;
+        if (!img && !svg) return;
+
+        const titleNode = frame.querySelector('.figure-header-title') || frame.querySelector('.figure-header');
+        const rawTitle = titleNode ? titleNode.textContent.replace(/확대 보기/g, '').trim() : '다이어그램 상세 보기';
+        titleEl.textContent = rawTitle;
+
+        const descNode = frame.querySelector('.figure-desc');
+        if (descNode && descNode.innerHTML.trim()) {
+          captionPanel.innerHTML = descNode.innerHTML;
+          toggleDescBtn.hidden = false;
+        } else {
+          captionPanel.innerHTML = '';
+          toggleDescBtn.hidden = true;
+        }
+        captionPanel.hidden = true;
+        toggleDescBtn.setAttribute('aria-expanded', 'false');
+
+        canvas.innerHTML = '';
+        if (img) {
+          state.isImage = true;
+          canvas.classList.add('lightbox-canvas--image');
+          const clonedImg = document.createElement('img');
+          clonedImg.src = img.currentSrc || img.src;
+          clonedImg.alt = img.alt || rawTitle;
+          clonedImg.width = img.naturalWidth;
+          clonedImg.height = img.naturalHeight;
+          canvas.appendChild(clonedImg);
+          state.contentW = img.naturalWidth;
+          state.contentH = img.naturalHeight;
+        } else {
+          state.isImage = false;
+          canvas.classList.remove('lightbox-canvas--image');
+          const { node, w, h } = cloneSvgCrisp(svg);
+          canvas.appendChild(node);
+          state.contentW = w + 32;
+          state.contentH = h + 32;
+        }
+
+        state.pointers.clear();
+        dialog.removeAttribute('data-closing');
+        dialog.showModal();
+
+        // Wait one frame for dialog top-layer layout dimensions
+        requestAnimationFrame(() => computeFit(false));
+      }
+
+      // Pointer pan & pinch-to-zoom on stage
+      function getStagePoint(clientX, clientY) {
+        const r = stage.getBoundingClientRect();
+        return { x: clientX - r.left, y: clientY - r.top };
+      }
+
+      function getTwoPointers() {
+        const pts = Array.from(state.pointers.values());
+        const dx = pts[1].x - pts[0].x;
+        const dy = pts[1].y - pts[0].y;
+        const dist = Math.hypot(dx, dy) || 1;
+        const mid = getStagePoint((pts[0].x + pts[1].x) / 2, (pts[0].y + pts[1].y) / 2);
+        return { dist, mid };
+      }
+
+      if (stage) {
+        stage.addEventListener('pointerdown', (e) => {
+          if (e.button !== 0 && e.pointerType === 'mouse') return;
+          stage.setPointerCapture(e.pointerId);
+          state.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+          if (state.pointers.size === 1) {
+            state.lastPan = { x: e.clientX, y: e.clientY };
+            state.movedSinceDown = false;
+            stage.classList.add('is-panning');
+          } else if (state.pointers.size === 2) {
+            const { dist, mid } = getTwoPointers();
+            state.lastPinchDist = dist;
+            state.lastPinchMid = mid;
+            state.movedSinceDown = true;
+          }
+        });
+
+        stage.addEventListener('pointermove', (e) => {
+          if (!state.pointers.has(e.pointerId)) return;
+          state.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+          if (state.pointers.size === 1 && state.lastPan) {
+            const dx = e.clientX - state.lastPan.x;
+            const dy = e.clientY - state.lastPan.y;
+            if (Math.hypot(dx, dy) > 4) state.movedSinceDown = true;
+            state.lastPan = { x: e.clientX, y: e.clientY };
+            state.tx += dx;
+            state.ty += dy;
+            clampPan();
+            applyTransform();
+          } else if (state.pointers.size === 2) {
+            const { dist, mid } = getTwoPointers();
+            const factor = dist / (state.lastPinchDist || dist);
+            if (state.lastPinchMid) {
+              state.tx += mid.x - state.lastPinchMid.x;
+              state.ty += mid.y - state.lastPinchMid.y;
+            }
+            zoomAt(state.scale * factor, mid.x, mid.y);
+            state.lastPinchDist = dist;
+            state.lastPinchMid = mid;
+          }
+        });
+
+        const endPointer = (e) => {
+          if (!state.pointers.has(e.pointerId)) return;
+          state.pointers.delete(e.pointerId);
+
+          if (state.pointers.size === 0) {
+            stage.classList.remove('is-panning');
+            // Double-tap / double-click smart zoom
+            if (!state.movedSinceDown) {
+              const now = Date.now();
+              const pt = getStagePoint(e.clientX, e.clientY);
+              if (now - state.lastTapTime < 300 && state.lastTapPos && Math.hypot(pt.x - state.lastTapPos.x, pt.y - state.lastTapPos.y) < 32) {
+                if (state.scale > state.fitScale * 1.25) {
+                  resetFit();
+                } else {
+                  zoomAt(Math.min(state.maxScale, state.fitScale * 2.2), pt.x, pt.y);
+                }
+                state.lastTapTime = 0;
+                state.lastTapPos = null;
+              } else {
+                state.lastTapTime = now;
+                state.lastTapPos = pt;
+              }
+            }
+            state.lastPan = null;
+          } else if (state.pointers.size === 1) {
+            const remaining = Array.from(state.pointers.values())[0];
+            state.lastPan = { x: remaining.x, y: remaining.y };
+          }
+        };
+
+        stage.addEventListener('pointerup', endPointer);
+        stage.addEventListener('pointercancel', endPointer);
+
+        stage.addEventListener('wheel', (e) => {
+          e.preventDefault();
+          const pt = getStagePoint(e.clientX, e.clientY);
+          const factor = Math.exp(-e.deltaY * (e.ctrlKey ? 0.012 : 0.0022));
+          zoomAt(state.scale * factor, pt.x, pt.y);
+        }, { passive: false });
+      }
+
+      // Controls & keyboard bindings
+      if (dialog) {
+        zoomInBtn.addEventListener('click', () => zoomCenter(1.3));
+        zoomOutBtn.addEventListener('click', () => zoomCenter(1 / 1.3));
+        zoomReadout.addEventListener('click', resetFit);
+        zoomActualBtn.addEventListener('click', zoomActual);
+        closeBtn.addEventListener('click', () => closeTopLayer(dialog));
+
+        toggleDescBtn.addEventListener('click', () => {
+          const nextHidden = !captionPanel.hidden;
+          captionPanel.hidden = nextHidden;
+          toggleDescBtn.setAttribute('aria-expanded', String(!nextHidden));
+          requestAnimationFrame(() => computeFit(true));
+        });
+
+        dialog.addEventListener('cancel', (e) => {
+          e.preventDefault();
+          closeTopLayer(dialog);
+        });
+
+        dialog.addEventListener('close', () => {
+          dialog.returnValue = '';
+          state.pointers.clear();
+          canvas.innerHTML = '';
+        });
+
+        dialog.addEventListener('keydown', (e) => {
+          if (e.key === '+' || e.key === '=') { e.preventDefault(); zoomCenter(1.25); }
+          else if (e.key === '-' || e.key === '_') { e.preventDefault(); zoomCenter(1 / 1.25); }
+          else if (e.key === '0') { e.preventDefault(); resetFit(); }
+          else if (e.key === 'ArrowLeft') { e.preventDefault(); state.tx += 48; clampPan(); applyTransform(); }
+          else if (e.key === 'ArrowRight') { e.preventDefault(); state.tx -= 48; clampPan(); applyTransform(); }
+          else if (e.key === 'ArrowUp') { e.preventDefault(); state.ty += 48; clampPan(); applyTransform(); }
+          else if (e.key === 'ArrowDown') { e.preventDefault(); state.ty -= 48; clampPan(); applyTransform(); }
+        });
+
+        if ('ResizeObserver' in window) {
+          new ResizeObserver(() => {
+            if (dialog.open) computeFit(true);
+          }).observe(stage);
+        }
+      }
+
+      function enhanceFigures() {
+        document.querySelectorAll('.figure-frame').forEach((frame) => {
+          const header = frame.querySelector('.figure-header');
+          const body = frame.querySelector('.figure-body');
+          if (!header || !body) return;
+
+          const hasImg = Boolean(body.querySelector('img'));
+          const hasMermaid = Boolean(body.querySelector('pre.mermaid'));
+          const hasSvg = Boolean(body.querySelector('svg'));
+          const isKoreaMap = Boolean(body.querySelector('svg.korea-svg'));
+
+          // Skip HTML-only charts like bar-chart
+          if (!hasImg && !hasMermaid && !hasSvg) return;
+
+          // Restructure header cleanly for wrap + action button
+          if (!header.querySelector('.figure-header-title')) {
+            const tagSpan = header.querySelector('span');
+            if (tagSpan) tagSpan.classList.add('figure-tag');
+
+            const titleText = Array.from(header.childNodes)
+              .filter(n => n.nodeType === Node.TEXT_NODE)
+              .map(n => n.textContent.trim())
+              .join(' ')
+              .trim();
+
+            header.innerHTML = '';
+            const titleSpan = document.createElement('span');
+            titleSpan.className = 'figure-header-title';
+            titleSpan.textContent = titleText;
+
+            const actions = document.createElement('div');
+            actions.className = 'figure-header-actions';
+            if (tagSpan) actions.appendChild(tagSpan);
+
+            const zoomBtn = document.createElement('button');
+            zoomBtn.type = 'button';
+            zoomBtn.className = 'figure-zoom-btn';
+            zoomBtn.setAttribute('aria-label', `${titleText} 크게 보기 (확대 및 이동)`);
+            zoomBtn.innerHTML = '<span aria-hidden="true">🔍</span> 확대 보기';
+            zoomBtn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              openFrame(frame);
+            });
+            actions.appendChild(zoomBtn);
+
+            header.appendChild(titleSpan);
+            header.appendChild(actions);
+          }
+
+          const accessibleTitle = header.querySelector('.figure-header-title')?.textContent?.trim() || '다이어그램';
+
+          if (hasMermaid) {
+            body.classList.add('figure-body--mermaid');
+            body.setAttribute('role', 'region');
+            body.setAttribute('tabindex', '0');
+            body.setAttribute('aria-label', `${accessibleTitle} 다이어그램 영역 (좌우 스크롤 및 확대 가능)`);
+
+            if (!frame.querySelector('.figure-mobile-hint')) {
+              const hint = document.createElement('div');
+              hint.className = 'figure-mobile-hint';
+              hint.innerHTML = '<span>↔ 좌우 스크롤 또는 터치하여 확대</span><span>핀치 줌 지원</span>';
+              body.insertAdjacentElement('afterend', hint);
+            }
+          }
+
+          if (!isKoreaMap) {
+            body.classList.add('figure-body--zoomable');
+            body.addEventListener('click', (e) => {
+              if (e.target.closest('button, a')) return;
+              openFrame(frame);
+            });
+          }
+        });
+      }
+
+      return { enhanceFigures, openFrame };
+    })();
+
+    // Initialize on load
+    window.addEventListener('DOMContentLoaded', () => {
+      DiagramViewer.enhanceFigures();
+      selectRegion('metro');
+      const initialHash = window.location.hash.replace('#', '');
+      if (initialHash && pagesOrder.includes(initialHash)) {
+        navigateTo(initialHash);
+      } else {
+        navigateTo('home');
+      }
+    });
+  </script>
+</body>
+</html>
