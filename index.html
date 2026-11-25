@@ -513,6 +513,10 @@
       max-width: 100%;
       height: auto;
     }
+    .figure-body--vertical pre.mermaid {
+      max-width: 540px;
+      margin: 0 auto;
+    }
     .figure-body picture {
       display: block;
       max-width: 100%;
@@ -841,6 +845,14 @@
       }
       .figure-body--mermaid pre.mermaid svg {
         min-width: 600px;
+      }
+      .figure-body--vertical {
+        align-items: center;
+      }
+      .figure-body--vertical pre.mermaid,
+      .figure-body--vertical pre.mermaid svg {
+        min-width: 0;
+        width: 100%;
       }
       .figure-mobile-hint {
         display: flex;
@@ -1778,7 +1790,82 @@ flowchart LR
             </div>
           </div>
 
-          <h2 class="sec-h2">5.5. 예산·운영 충격 제로화를 위한 4단계 점진적 마이그레이션 로드맵 <span class="sec-tag">Migration Roadmap</span></h2>
+          <h2 class="sec-h2">5.5. 교통시설물 통합관리 솔루션(IMS v1.0) 기술 스펙 및 아키텍처 <span class="sec-tag">IMS v1.0 Spec</span></h2>
+          <h3 class="sec-h3">① 주요 기술 스펙 (조달청 등록 규격서 기반)</h3>
+          <div class="grid-3">
+            <div class="card card-top-accent">
+              <div class="kpi-label">PLATFORM &amp; QUALITY</div>
+              <h4 style="font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;">플랫폼 형태 및 인증</h4>
+              <ul class="clean-list" style="margin-bottom:0;">
+                <li><strong>웹 기반 통합 관제 UI</strong> (확장형 아키텍처)</li>
+                <li><strong>GS인증 1등급</strong> 획득 (ISO/IEC 25023·25051 품질 검증 완료)</li>
+                <li>표준 HTTP/JSON 및 Matter 브릿지·IROS 라우터 관제 연계</li>
+              </ul>
+            </div>
+            <div class="card card-top-accent">
+              <div class="kpi-label">PUBLIC PROCUREMENT</div>
+              <h4 style="font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;">조달 등록 상품 구성 (3자단가)</h4>
+              <ul class="clean-list" style="margin-bottom:0;">
+                <li><strong>기본상품:</strong> <code>Traffic Facilities IMS v1.0</code> (물품식별번호 <code>25946789</code>)</li>
+                <li><strong>커스터마이징 상품 (4종):</strong> 지자체별 현장 특화 연계 (<code>26004116</code>~<code>26004119</code>)</li>
+                <li><strong>유지관리 SLA 상품:</strong> <strong>Type A</strong> (장애복구 <strong>4시간 이내</strong>, 월 1회 방문 점검) / <strong>Type B</strong> (장애복구 <strong>12시간 이내</strong>, 분기 1회 방문 점검)</li>
+              </ul>
+            </div>
+            <div class="card card-top-accent">
+              <div class="kpi-label">CORE MODULES</div>
+              <h4 style="font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;">5대 핵심 관제 모듈</h4>
+              <ul class="clean-list" style="margin-bottom:0;">
+                <li>① 전체/개별 정류장 실시간 상태 동기화 대시보드</li>
+                <li>② 온열의자 전력량 감시 및 원격 ON/OFF 제어</li>
+                <li>③ 스마트스크린·LED 전광판·재실감지·안전펜스·AI 카메라 통합 제어</li>
+                <li>④ 이벤트 알럿 메시지 시스템</li>
+                <li>⑤ <strong>APM (유지보수 이력 관리·공지 게시판)</strong></li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 class="sec-h3">② IMS v1.0 통합 관제 아키텍처 (조달 SW + 현장 제어)</h3>
+          <div class="figure-frame">
+            <div class="figure-header">
+              [Figure 5-5] IMS v1.0 통합 관제 아키텍처 (조달 SW + 현장 제어)
+              <span>Procurement SW Architecture</span>
+            </div>
+            <div class="figure-body">
+              <pre class="mermaid">
+flowchart TB
+    subgraph Site["현장 정류장 / 세이프티폴(폴스탑)"]
+        DEV1["승객 편의·안전 설비<br/>• 온열의자 (전력·ON/OFF)<br/>• 스마트 스크린 셸터 · 안전펜스"]
+        DEV2["안내·감지 설비<br/>• 승하차 알림 LED 전광판<br/>• 재실감지 · AI 교통약자 카메라 · 승차버튼"]
+        RTR["산업용 LTE / P-LTE 라우터<br/>(IROS 무선장비 관제 연동)"]
+        DEV1 &amp; DEV2 --> RTR
+    end
+
+    subgraph IMS_Core["IMS v1.0 통합관리 플랫폼 (GS 1등급 · 디지털서비스몰 3자단가)"]
+        SYNC["실시간 상태 동기화 엔진<br/>(장치 이상·고장·전력 실시간 수집)"]
+        CTRL["원격 제어 &amp; 커스터마이징 모듈<br/>(온열의자·스크린 원격 ON/OFF)"]
+        ALERT["알럿 메시지 엔진<br/>(장애·오류·등록/수정 즉시 통보)"]
+        APM["APM 운영·유지보수 DB<br/>(점검이력 · 공지 · SLA 4h/12h 관리)"]
+    end
+
+    subgraph Admin["지자체 운영자 &amp; 유지보수 체계"]
+        WEB["지자체 담당자 웹 콘솔<br/>(전체 현황 · 정류장별 제어 · 시스템 모니터링)"]
+        MAINT["유지보수 전담팀 (A/B Type)<br/>(현장 출동 최소화 · 인수인계 연속성)"]
+    end
+
+    RTR <-->|"보안 무선망"| SYNC &amp; CTRL
+    SYNC --> ALERT
+    SYNC &amp; CTRL --> WEB
+    ALERT --> WEB &amp; MAINT
+    WEB --> APM
+    MAINT --> APM
+              </pre>
+            </div>
+            <div class="figure-desc">
+              <strong>[도식 해설]</strong> 조달청 디지털서비스몰 제3자 단가계약으로 검증된 <strong>IMS v1.0</strong>은 현장 정류장·폴스탑의 모든 편의·안전·안내 설비를 산업용 LTE/P-LTE 라우터(IROS 연계)를 통해 실시간으로 동기화·제어합니다. 특히 이벤트 알럿 엔진과 <strong>APM(유지보수 이력 관리·SLA 4h/12h 추적)</strong>을 웹 콘솔에 내재화하여, 지자체 담당자 변경 시에도 인수인계 공백 없이 아래 5.6절의 단계별 마이그레이션을 안정적으로 뒷받침합니다.
+            </div>
+          </div>
+
+          <h2 class="sec-h2">5.6. 예산·운영 충격 제로화를 위한 4단계 점진적 마이그레이션 로드맵 <span class="sec-tag">Migration Roadmap</span></h2>
           <div class="table-wrap">
             <table>
               <thead>
@@ -2009,31 +2096,45 @@ flowchart LR
             </p>
           </div>
 
-          <h2 class="sec-h2">7.1. 3-Horizon 중장기 성장 비전 아키텍처 <span class="sec-tag">3-Horizon Roadmap</span></h2>
+          <h2 class="sec-h2">7.1. 3-Horizon 중장기 성장 비전 아키텍처 <span class="sec-tag">Value Flywheel</span></h2>
           <div class="figure-frame">
             <div class="figure-header">
-              [Figure 7-1] 3-Horizon (1~5년차) 단계별 성장 지평 및 가치 순환 구조 (Value Flywheel)
-              <span>Strategic Growth Horizon</span>
+              [Figure 7-1] 이루텔 8대 BM 통합 가치 순환 구조 (Value Flywheel)
+              <span>8-BM Value Flywheel</span>
             </div>
-            <div class="figure-body">
+            <div class="figure-body figure-body--vertical">
               <pre class="mermaid">
-flowchart LR
-    subgraph H1 ["Horizon 1: 조달 스케일업 &amp; 즉시 상용화 (1~2년차)"]
-        H1A["조달 3자단가(IMS) · 고아 셸터 리트로핏<br/>BM 6: 어린이집·경로당 Matter-ESG SaaS<br/>BM 5: 농어촌 오프그리드 태양광 폴스탑"]
-        H1B["BM 8-1: K-City Network 해외실증 착수<br/>(비희석 공공자금 3~4억 활용)"]
+flowchart TB
+    subgraph Phase1 ["1단계: 조달 패스트트랙 및 즉시 상용화 (0~12개월)"]
+        direction TB
+        P1A["BM 6: 어린이집·경로당 Matter-ESG SaaS"]
+        P1B["BM 5: 국내 농어촌 오프그리드 폴스탑 구독"]
+        P1C["BM 8-1: K-City Network 해외실증 착수"]
+        P1A ~~~ P1B ~~~ P1C
     end
-    subgraph H2 ["Horizon 2: B2G2B 산업 확장 &amp; 인프라 공유 (2~3년차)"]
-        H2A["BM 7: 스마트건설 MG/MC · 농기계 RTK 구독<br/>BM 3: AI·RTK 스마트 커브 및 DaaS API<br/>BM 2: 5G 멀티테넌트 스마트폴 셰어링"]
+
+    subgraph Phase2 ["2단계: 산업 B2G2B 확장 및 인프라 공유 (6~24개월)"]
+        direction TB
+        P2A["BM 7: 스마트건설·농기계임대사업소 RTK 구독"]
+        P2B["BM 3: AI·RTK 스마트 커브 및 DaaS API"]
+        P2C["BM 2: 5G 멀티테넌트 스마트폴 셰어링"]
+        P2A ~~~ P2B ~~~ P2C
     end
-    subgraph H3 ["Horizon 3: 대형 PPP 자립화 &amp; 글로벌 ODA 확산 (3~5년차)"]
-        H3A["BM 1: Zero-CAPEX 에코 셸터 PPP·ESG 스폰서<br/>BM 4: K-Mobility Hub PM·DRT·물류 수수료<br/>BM 8-2: KOICA IBS · EDCF/ADB 개도국 본사업"]
+
+    subgraph Phase3 ["3단계: 대형 PPP 자립화 및 글로벌 ODA 확산 (18~36개월)"]
+        direction TB
+        P3A["BM 1: Zero-CAPEX 에코 셸터 PPP·ESG 스폰서십"]
+        P3B["BM 4: K-Mobility Hub PM·DRT·물류 수수료"]
+        P3C["BM 8-2: KOICA IBS · EDCF/ADB 개도국 본사업"]
+        P3A ~~~ P3B ~~~ P3C
     end
-    H1 ==>|국내 실적 · 현지 PoC 레퍼런스| H2 ==>|도시 엣지 밀도 · 구독 ARR 축적| H3
-    H3 -.->|재무 여력 · 글로벌 브랜드로 수주 가속| H1
+
+    Phase1 ==>|"국내 조달 실적 · 현지 PoC 레퍼런스 확보"| Phase2 ==>|"도시 엣지 밀도 · 산업 구독 ARR 축적"| Phase3
+    Phase3 -.->|"재무 여력 · 글로벌 브랜드로 국내외 수주 가속"| Phase1
               </pre>
             </div>
             <div class="figure-desc">
-              <strong>[도식 해설]</strong> 임직원 10명 규모의 강소기업이 재무 리스크 없이 스케일업하기 위해, 1~2년차에는 기존 보유 자산(IRAIR·폴스탑·IMS 3자단가)으로 즉각 매출이 발생하는 BM 5·6과 정부 실증 자금(K-City Network)을 선점합니다. 이후 축적된 레퍼런스와 구독 현금흐름을 바탕으로 2~3년차 B2G2B 산업 RTK(BM 7)·데이터 API(BM 3)로 확장하고, 3~5년차에 대형 PPP(BM 1)와 글로벌 ODA 본사업(BM 8)으로 도약하는 선순환 플라이휠입니다.
+              <strong>[도식 해설]</strong> 8대 확장 비즈니스 모델은 <strong>국내 B2G 거점 선점(Tier 1) → B2G2B 산업 확장 및 Zero-CAPEX 자립화(Tier 2) → 고마진 데이터·환승 수수료 및 글로벌 ODA 본사업 수출(Tier 3)</strong>로 이어지는 글로벌 스케일업 가치 순환 고리(Value Flywheel)를 완성합니다.
             </div>
           </div>
 
